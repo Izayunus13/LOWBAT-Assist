@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="LOWBAT Assist — dashboard dan generator jarkoman Liaison Officer OLIMDIPO 2026." />
+  <title>LOWBAT Assist | OLIMDIPO 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <div class="background-layer" aria-hidden="true"></div>
+  <div class="embers" aria-hidden="true"></div>
+
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <div class="brand">
+        <div class="brand-logo-wrap"><img src="assets/logo-lowbat.png" alt="Logo LOWBAT OLIMDIPO 2026" class="brand-logo" /></div>
+        <div class="brand-copy">
+          <p class="eyebrow">OLIMDIPO 2026</p>
+          <h1>LOWBAT <span>Assist</span></h1>
+          <p>Low Battery, Full Assistance.</p>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav" aria-label="Navigasi utama">
+        <button class="nav-item active" type="button" data-page="dashboard"><span class="nav-icon">⚡</span><span><strong>Dashboard</strong><small>Ringkasan kerja LO</small></span></button>
+        <button class="nav-item" type="button" data-page="generator"><span class="nav-icon">📣</span><span><strong>Generator</strong><small>Buat jarkoman</small></span></button>
+        <button class="nav-item" type="button" data-page="guide"><span class="nav-icon">🧭</span><span><strong>Panduan</strong><small>Flow kerja singkat</small></span></button>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="battery-widget">
+          <div class="battery-widget-top"><span>Status Sistem</span><strong>FULL BAR</strong></div>
+          <div class="battery-track"><span></span></div>
+          <small>Siap membantu seluruh staff LO.</small>
+        </div>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar">
+        <button class="menu-button" id="menuButton" type="button" aria-label="Buka menu">☰</button>
+        <div><p class="topbar-kicker" id="dynamicGreeting">Selamat datang, LOWBAT!</p><h2 id="pageTitle">Dashboard</h2></div>
+        <div class="wib-clock"><span class="live-dot"></span><div><small>Waktu WIB</small><strong id="wibClock">--:--:--</strong></div></div>
+      </header>
+
+      <section class="page-section active" id="page-dashboard">
+        <article class="hero-card">
+          <div class="hero-copy">
+            <span class="hero-badge">⚡ COMMAND CENTER LOWBAT</span>
+            <h3>Satu dashboard untuk tetap <em>connected</em>, terarah, dan siap membantu.</h3>
+            <p>Pantau pertandingan terdekat, susun jarkoman, dan salin hasilnya tanpa perlu mengetik ulang dari awal.</p>
+            <div class="hero-actions">
+              <button class="primary-button" type="button" data-open-generator><span>📣</span>Buat Jarkoman</button>
+              <button class="ghost-button" type="button" data-page-jump="guide">Lihat Flow Kerja</button>
+            </div>
+          </div>
+          <div class="hero-visual" aria-hidden="true"><div class="energy-ring"></div><img src="assets/logo-lowbat.png" alt="" /></div>
+        </article>
+
+        <div class="stats-grid">
+          <article class="stat-card"><div class="stat-icon">🏟️</div><div><small>Match Mendatang</small><strong id="statUpcoming">0</strong><span>jadwal tercatat</span></div></article>
+          <article class="stat-card"><div class="stat-icon">🔥</div><div><small>Match Hari Ini</small><strong id="statToday">0</strong><span>perlu dipantau</span></div></article>
+          <article class="stat-card"><div class="stat-icon">📣</div><div><small>Jarkoman Dibuat</small><strong id="statGenerated">0</strong><span>tersimpan di perangkat</span></div></article>
+          <article class="stat-card"><div class="stat-icon">🔋</div><div><small>Kesiapan Sistem</small><strong>100%</strong><span>ready to assist</span></div></article>
+        </div>
+
+        <div class="dashboard-grid">
+          <article class="panel schedule-panel">
+            <div class="panel-heading"><div><p class="section-label">UPCOMING MATCH</p><h3>Rundown Terdekat</h3></div><span class="data-note">Edit melalui <code>js/rundown.js</code></span></div>
+            <div class="schedule-list" id="scheduleList"></div>
+          </article>
+          <article class="panel recent-panel">
+            <div class="panel-heading"><div><p class="section-label">RECENT ACTIVITY</p><h3>Jarkoman Terakhir</h3></div></div>
+            <div class="recent-list" id="recentList"></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="page-section" id="page-generator">
+        <article class="generator-intro panel">
+          <div><p class="section-label">JARKOMAN GENERATOR</p><h3>Tinggal pilih, periksa, lalu salin.</h3><p>Generator menyesuaikan sapaan berdasarkan waktu WIB, fakultas, nama Mikat, cabang olahraga, hari/tanggal, waktu, dan tempat.</p></div>
+          <button class="primary-button large-button" type="button" data-open-generator>Mulai Generate <span>→</span></button>
+        </article>
+        <div class="template-preview-grid" id="templatePreviewGrid"></div>
+        <article class="result-panel panel hidden" id="resultPanel">
+          <div class="panel-heading"><div><p class="section-label">HASIL TERBARU</p><h3>Jarkoman Siap Dikirim</h3></div><button class="copy-button" id="copyResultButton" type="button">📋 Copy Jarkoman</button></div>
+          <pre id="resultText" class="generated-output"></pre>
+          <div class="result-footer"><span id="copyStatus">Periksa kembali sebelum diteruskan ke grup.</span><button class="ghost-button" type="button" data-open-generator>Buat Jarkoman Lain</button></div>
+        </article>
+      </section>
+
+      <section class="page-section" id="page-guide">
+        <article class="panel guide-hero"><p class="section-label">FLOW KERJA LO</p><h3>Dari pesan masuk sampai kebutuhan benar-benar selesai.</h3><p>LOWBAT tidak hanya meneruskan informasi. Setiap pesan perlu dipahami, dikonfirmasi, disampaikan kembali, dan ditindaklanjuti hingga tuntas.</p></article>
+        <div class="flow-grid">
+          <article class="flow-card"><span>01</span><div class="flow-icon">📩</div><h4>Terima & Pahami</h4><p>Baca pesan dengan teliti dan identifikasi kebutuhan utamanya.</p></article>
+          <article class="flow-card"><span>02</span><div class="flow-icon">🔎</div><h4>Konfirmasi</h4><p>Pastikan informasi berasal dari koordinator atau divisi terkait.</p></article>
+          <article class="flow-card"><span>03</span><div class="flow-icon">📢</div><h4>Sampaikan</h4><p>Gunakan bahasa yang jelas, lengkap, ramah, dan tidak ambigu.</p></article>
+          <article class="flow-card"><span>04</span><div class="flow-icon">🔁</div><h4>Tindak Lanjut</h4><p>Pastikan pesan diterima, diteruskan, dan kebutuhan sudah tertangani.</p></article>
+        </div>
+        <article class="panel editable-guide">
+          <div class="panel-heading"><div><p class="section-label">CATATAN PENGEMBANGAN</p><h3>File yang Mudah Diedit</h3></div></div>
+          <div class="editable-file-grid">
+            <div><code>js/templates.js</code><p>Tambah, hapus, atau ubah materi jarkoman.</p></div>
+            <div><code>js/rundown.js</code><p>Isi jadwal pertandingan yang tampil pada dashboard.</p></div>
+            <div><code>css/styles.css</code><p>Atur warna, ukuran, font, dan tampilan website.</p></div>
+          </div>
+        </article>
+      </section>
+    </main>
+  </div>
+
+  <div class="modal-backdrop hidden" id="generatorModal" aria-hidden="true">
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <div class="modal-header"><div><p class="section-label">LOWBAT ASSIST</p><h3 id="modalTitle">Generate Jarkoman</h3></div><button class="icon-button" id="closeModalButton" type="button" aria-label="Tutup">✕</button></div>
+      <div class="stepper" aria-label="Tahapan generator">
+        <button class="step-dot active" type="button" data-step-dot="1"><span>1</span><small>Jenis</small></button><div class="step-line"></div>
+        <button class="step-dot" type="button" data-step-dot="2"><span>2</span><small>Delegasi</small></button><div class="step-line"></div>
+        <button class="step-dot" type="button" data-step-dot="3"><span>3</span><small>Detail</small></button><div class="step-line"></div>
+        <button class="step-dot" type="button" data-step-dot="4"><span>4</span><small>Crosscheck</small></button>
+      </div>
+
+      <div class="modal-body">
+        <section class="wizard-step active" data-step="1">
+          <div class="wizard-heading"><span>LANGKAH 1</span><h4>Jarkoman tentang apa?</h4><p>Pilih template yang ingin digunakan.</p></div>
+          <div class="template-choice-grid" id="templateChoiceGrid"></div><p class="form-error" id="templateError"></p>
+        </section>
+
+        <section class="wizard-step" data-step="2">
+          <div class="wizard-heading"><span>LANGKAH 2</span><h4>Pilih delegasi tujuan</h4><p>Wilayah dan Daerah tidak memerlukan pilihan nama Mikat.</p></div>
+          <div class="form-grid">
+            <label class="field full-field"><span>Fakultas / Delegasi</span><select id="facultySelect"><option value="">Pilih fakultas atau delegasi</option></select></label>
+            <fieldset class="field full-field mikat-field" id="mikatField"><legend>Nama Mikat</legend><div class="segmented-options" id="mikatOptions"></div></fieldset>
+          </div>
+          <div class="special-note hidden" id="territoryNote"><span>📍</span><p>Untuk <strong>Wilayah dan Daerah</strong>, sapaan langsung menggunakan nama tersebut tanpa pilihan Seniora, Soraya, Mikatan, atau Mikat.</p></div>
+          <p class="form-error" id="delegationError"></p>
+        </section>
+
+        <section class="wizard-step" data-step="3">
+          <div class="wizard-heading"><span>LANGKAH 3</span><h4>Lengkapi detail kegiatan</h4><p>Kolom muncul menyesuaikan jenis jarkoman.</p></div>
+          <div id="noDetailMessage" class="special-note hidden"><span>✨</span><p>Template ini tidak memerlukan detail waktu atau cabang olahraga. Silakan lanjut ke tahap crosscheck.</p></div>
+          <div class="form-grid" id="eventDetailFields">
+            <label class="field full-field hidden" id="sportCategoryField"><span>Cabang Olahraga</span><select id="sportCategorySelect"><option value="">Pilih cabang olahraga</option></select></label>
+            <label class="field full-field hidden" id="sportVariantField"><span>Kategori Cabor</span><select id="sportVariantSelect"><option value="">Pilih kategori</option></select></label>
+            <label class="field hidden" id="dateField"><span>Hari / Tanggal</span><input type="date" id="eventDateInput" /></label>
+            <label class="field hidden" id="timeField"><span>Waktu</span><input type="time" id="eventTimeInput" /></label>
+            <label class="field full-field hidden" id="placeField"><span>Tempat / Venue</span><input type="text" id="eventPlaceInput" placeholder="Contoh: GOR Undip" /></label>
+          </div>
+          <p class="form-error" id="detailError"></p>
+        </section>
+
+        <section class="wizard-step" data-step="4">
+          <div class="wizard-heading"><span>LANGKAH 4</span><h4>Crosscheck sebelum generate</h4><p>Pastikan seluruh data sudah sesuai.</p></div>
+          <div class="review-grid" id="reviewGrid"></div>
+          <div class="preview-box"><div class="preview-box-heading"><span>Preview Jarkoman</span><small>Sapaan otomatis mengikuti waktu WIB.</small></div><pre id="wizardPreview"></pre></div>
+          <label class="crosscheck-box"><input type="checkbox" id="crosscheckInput" /><span>Saya sudah memeriksa jenis jarkoman, fakultas, nama Mikat, cabang olahraga, hari/tanggal, waktu, dan tempat.</span></label>
+          <p class="form-error" id="crosscheckError"></p>
+        </section>
+      </div>
+
+      <div class="modal-footer"><button class="ghost-button hidden" id="backButton" type="button">← Kembali</button><div class="modal-footer-spacer"></div><button class="primary-button" id="nextButton" type="button">Lanjut <span>→</span></button><button class="primary-button hidden" id="generateButton" type="button">⚡ Generate Jarkoman</button></div>
+    </div>
+  </div>
+
+  <div class="toast hidden" id="toast" role="status"><span>⚡</span><p id="toastText">Berhasil disalin!</p></div>
+
+  <script src="js/templates.js"></script>
+  <script src="js/rundown.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
