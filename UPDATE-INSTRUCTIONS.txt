@@ -1,0 +1,29 @@
+LOWBAT ASSIST — UPDATE RIWAYAT BERSAMA
+
+CARA PALING AMAN:
+1. Tutup Live Server sementara.
+2. Backup folder LOWBAT-Assist milikmu.
+3. Salin seluruh isi folder update ini ke folder LOWBAT-Assist lokal.
+4. Pilih Replace the files in the destination ketika Windows meminta konfirmasi.
+5. Buka index.html memakai Live Server.
+6. Coba generate satu jarkoman menggunakan nama staff.
+7. Buka menu Riwayat Bersama dan tekan Refresh.
+8. Cek Supabase Table Editor: harus muncul satu baris baru.
+
+FILE BARU:
+- js/supabase-config.js
+- supabase-setup.sql
+- UPDATE-INSTRUCTIONS.txt
+
+FILE YANG DIUBAH:
+- index.html
+- css/styles.css
+- js/app.js
+- README.md
+
+SETELAH BERHASIL DI LOKAL:
+git add .
+git commit -m "add shared jarkoman history with Supabase"
+git push
+
+Vercel akan deploy otomatis.

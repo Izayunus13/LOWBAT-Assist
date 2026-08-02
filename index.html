@@ -28,6 +28,7 @@
       <nav class="sidebar-nav" aria-label="Navigasi utama">
         <button class="nav-item active" type="button" data-page="dashboard"><span class="nav-icon">⚡</span><span><strong>Dashboard</strong><small>Ringkasan kerja LO</small></span></button>
         <button class="nav-item" type="button" data-page="generator"><span class="nav-icon">📣</span><span><strong>Generator</strong><small>Buat jarkoman</small></span></button>
+        <button class="nav-item" type="button" data-page="history"><span class="nav-icon">🗂️</span><span><strong>History</strong><small>Data seluruh staff</small></span></button>
         <button class="nav-item" type="button" data-page="guide"><span class="nav-icon">🧭</span><span><strong>Panduan</strong><small>Flow kerja singkat</small></span></button>
       </nav>
 
@@ -64,17 +65,16 @@
         <div class="stats-grid">
           <article class="stat-card"><div class="stat-icon">🏟️</div><div><small>Match Mendatang</small><strong id="statUpcoming">0</strong><span>jadwal tercatat</span></div></article>
           <article class="stat-card"><div class="stat-icon">🔥</div><div><small>Match Hari Ini</small><strong id="statToday">0</strong><span>perlu dipantau</span></div></article>
-          <article class="stat-card"><div class="stat-icon">📣</div><div><small>Jarkoman Dibuat</small><strong id="statGenerated">0</strong><span>tersimpan di perangkat</span></div></article>
-          <article class="stat-card"><div class="stat-icon">🔋</div><div><small>Kesiapan Sistem</small><strong>100%</strong><span>ready to assist</span></div></article>
+          <article class="stat-card"><div class="stat-icon">🗂️</div><div><small>Riwayat Bersama</small><strong id="statGenerated">0</strong><span>tersimpan online</span></div></article>
+          <article class="stat-card"><div class="stat-icon">☁️</div><div><small>Status Database</small><strong id="statDatabaseStatus">...</strong><span id="statDatabaseCaption">mengecek koneksi</span></div></article>
         </div>
 
         <div class="dashboard-grid">
           <article class="panel schedule-panel">
-            <div class="panel-heading"><div><p class="section-label">UPCOMING MATCH</p><h3>Rundown Terdekat</h3></div><span class="data-note">Edit melalui <code>js/rundown.js</code></span></div>
             <div class="schedule-list" id="scheduleList"></div>
           </article>
           <article class="panel recent-panel">
-            <div class="panel-heading"><div><p class="section-label">RECENT ACTIVITY</p><h3>Jarkoman Terakhir</h3></div></div>
+            <div class="panel-heading"><div><p class="section-label">SHARED ACTIVITY</p><h3>Riwayat Bersama Terbaru</h3></div><button class="mini-button" type="button" data-page-jump="history">Lihat Semua</button></div>
             <div class="recent-list" id="recentList"></div>
           </article>
         </div>
@@ -90,6 +90,29 @@
           <div class="panel-heading"><div><p class="section-label">HASIL TERBARU</p><h3>Jarkoman Siap Dikirim</h3></div><button class="copy-button" id="copyResultButton" type="button">📋 Copy Jarkoman</button></div>
           <pre id="resultText" class="generated-output"></pre>
           <div class="result-footer"><span id="copyStatus">Periksa kembali sebelum diteruskan ke grup.</span><button class="ghost-button" type="button" data-open-generator>Buat Jarkoman Lain</button></div>
+        </article>
+      </section>
+
+
+      <section class="page-section" id="page-history">
+        <article class="panel history-hero">
+          <div>
+            <p class="section-label">SHARED HISTORY</p>
+            <h3>Riwayat jarkoman dari seluruh staff.</h3>
+            <p>Setiap jarkoman yang berhasil di-generate akan tersimpan pada database yang sama dan dapat dilihat dari perangkat staff lainnya.</p>
+          </div>
+          <div class="database-chip" id="databaseChip"><span class="status-dot checking"></span><div><small>Status Database</small><strong id="databaseStatusLabel">Mengecek koneksi...</strong></div></div>
+        </article>
+
+        <article class="panel history-panel">
+          <div class="history-toolbar">
+            <label class="history-search"><span>🔎</span><input type="search" id="historySearchInput" placeholder="Cari fakultas, cabor, pembuat, atau isi jarkoman..." /></label>
+            <select id="historyFacultyFilter" aria-label="Filter fakultas"><option value="">Semua Fakultas</option></select>
+            <select id="historyTemplateFilter" aria-label="Filter jenis jarkoman"><option value="">Semua Jarkoman</option></select>
+            <button class="ghost-button" id="refreshHistoryButton" type="button">↻ Refresh</button>
+          </div>
+          <div class="history-summary"><span id="historyCountLabel">0 riwayat</span><small>Urutan terbaru berdasarkan waktu WIB.</small></div>
+          <div class="shared-history-list" id="sharedHistoryList"></div>
         </article>
       </section>
 
@@ -132,6 +155,7 @@
         <section class="wizard-step" data-step="2">
           <div class="wizard-heading"><span>LANGKAH 2</span><h4>Pilih delegasi tujuan</h4><p>Wilayah dan Daerah tidak memerlukan pilihan nama Mikat.</p></div>
           <div class="form-grid">
+            <label class="field full-field"><span>Nama Staff Pembuat</span><input type="text" id="staffNameInput" maxlength="60" placeholder="Contoh: Ijot - Person In Charge" /><small class="field-hint">Nama ini akan tampil pada Riwayat Bersama.</small></label>
             <label class="field full-field"><span>Fakultas / Delegasi</span><select id="facultySelect"><option value="">Pilih fakultas atau delegasi</option></select></label>
             <fieldset class="field full-field mikat-field" id="mikatField"><legend>Nama Mikat</legend><div class="segmented-options" id="mikatOptions"></div></fieldset>
           </div>
@@ -165,8 +189,27 @@
     </div>
   </div>
 
+
+  <div class="modal-backdrop hidden" id="historyDetailModal" aria-hidden="true">
+    <div class="modal-card history-detail-card" role="dialog" aria-modal="true" aria-labelledby="historyDetailTitle">
+      <div class="modal-header">
+        <div><p class="section-label">History</p><h3 id="historyDetailTitle">Detail Jarkoman</h3></div>
+        <button class="icon-button" id="closeHistoryDetailButton" type="button" aria-label="Tutup">✕</button>
+      </div>
+      <div class="history-detail-meta" id="historyDetailMeta"></div>
+      <div class="history-detail-body"><pre id="historyDetailText"></pre></div>
+      <div class="modal-footer">
+        <span class="history-detail-note">Data tersimpan pada Supabase dan terlihat oleh seluruh staff.</span>
+        <div class="modal-footer-spacer"></div>
+        <button class="copy-button" id="copyHistoryDetailButton" type="button">📋 Copy Jarkoman</button>
+      </div>
+    </div>
+  </div>
+
   <div class="toast hidden" id="toast" role="status"><span>⚡</span><p id="toastText">Berhasil disalin!</p></div>
 
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/supabase-config.js"></script>
   <script src="js/templates.js"></script>
   <script src="js/rundown.js"></script>
   <script src="js/app.js"></script>

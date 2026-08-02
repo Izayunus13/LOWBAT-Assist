@@ -124,3 +124,59 @@ melalui menu **Developer Tools → Application → Local Storage**.
 - Status follow-up tiap fakultas.
 - Notifikasi pertandingan terdekat.
 - Panel admin untuk mengubah template tanpa membuka source code.
+
+---
+
+## Riwayat Bersama dengan Supabase
+
+Versi ini sudah terhubung ke tabel Supabase `jarkoman_history`.
+
+Fitur tambahannya:
+
+- Nama staff pembuat pada tahap delegasi.
+- Jarkoman otomatis disimpan ke Supabase setelah generate.
+- Menu **Riwayat Bersama** dapat dilihat dari seluruh perangkat.
+- Pencarian dan filter fakultas/jenis jarkoman.
+- Membuka detail dan copy ulang jarkoman.
+- Cadangan lokal apabila internet atau database bermasalah.
+- Data tertunda akan dicoba disinkronkan kembali saat perangkat online.
+
+### File koneksi
+
+```text
+js/supabase-config.js
+```
+
+File tersebut hanya boleh berisi:
+
+- Project URL.
+- Publishable key (`sb_publishable_...`).
+
+Jangan pernah memasukkan `sb_secret_...` atau `service_role` ke source code frontend.
+
+### Tabel dan RLS
+
+Kode SQL cadangan tersedia di:
+
+```text
+supabase-setup.sql
+```
+
+Policy saat ini mengizinkan pengguna website untuk:
+
+- Membaca riwayat (`SELECT`).
+- Menambahkan riwayat (`INSERT`).
+
+Pengguna website tidak memperoleh izin untuk mengubah atau menghapus data.
+
+### Update ke GitHub dan Vercel
+
+Setelah mengganti file project lokal dengan versi ini:
+
+```powershell
+git add .
+git commit -m "add shared jarkoman history with Supabase"
+git push
+```
+
+Vercel akan memperbarui website secara otomatis karena repository sudah terhubung.
