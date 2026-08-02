@@ -193,6 +193,17 @@
     return data.templates.find((template) => template.id === id);
   }
 
+  // Mengenali "Wilayah dan Daerah" maupun "Wilayah & Daerah".
+  function isTerritoryFaculty(faculty = state.selectedFaculty) {
+    const normalized = String(faculty || "")
+      .trim()
+      .toLowerCase()
+      .replace(/\s*&\s*/g, " dan ")
+      .replace(/\s+/g, " ");
+
+    return normalized === "wilayah dan daerah";
+  }
+
   function makeSportDisplay(category, variant) {
     if (!variant) return "";
     return ["Badminton", "Taekwondo"].includes(category)
@@ -367,7 +378,7 @@
   }
 
   function updateDelegationUI() {
-    const isTerritory = state.selectedFaculty === "Wilayah dan Daerah";
+    const isTerritory = isTerritoryFaculty();
     dom.mikatField.classList.toggle("hidden", isTerritory);
     dom.territoryNote.classList.toggle("hidden", !isTerritory);
 
@@ -537,7 +548,7 @@
         return false;
       }
 
-      if (state.selectedFaculty !== "Wilayah dan Daerah" && !state.selectedMikat) {
+      if (!isTerritoryFaculty() && !state.selectedMikat) {
         dom.delegationError.textContent =
           "Pilih Seniora, Soraya, Mikatan, atau Mikat.";
         return false;
@@ -581,8 +592,8 @@
   }
 
   function getMikatLabel() {
-    return state.selectedFaculty === "Wilayah dan Daerah"
-      ? "Wilayah dan Daerah"
+    return isTerritoryFaculty()
+      ? state.selectedFaculty
       : `${state.selectedMikat} ${state.selectedFaculty}`.trim();
   }
 
@@ -616,7 +627,7 @@
       ["Fakultas / Delegasi", state.selectedFaculty || "-"],
       [
         "Nama Mikat",
-        state.selectedFaculty === "Wilayah dan Daerah"
+        isTerritoryFaculty()
           ? "Tidak diperlukan"
           : state.selectedMikat || "-"
       ]
@@ -743,7 +754,7 @@
       template_title: template?.title || "Jarkoman",
       faculty: state.selectedFaculty,
       mikat_name:
-        state.selectedFaculty === "Wilayah dan Daerah"
+        isTerritoryFaculty()
           ? null
           : state.selectedMikat || null,
       sport: state.selectedSport || null,
