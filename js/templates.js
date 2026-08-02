@@ -59,7 +59,7 @@ window.LOWBAT_DATA = {
       requiresDate: false,
       requiresTime: false,
       requiresPlace: false,
-      content: `Selamat {GREETING} rekan-rekan delegasi {MIKAT_LABEL} yang sudah bergabung! 🤝✨
+      content: `*Selamat {GREETING} rekan-rekan delegasi {MIKAT_LABEL} Universitas Diponegoro yang sudah bergabung!* 🤝✨
 
 Terima kasih atas respons cepatnya. Grup ini resmi akan kita gunakan sebagai pintu utama penyebaran informasi teknis OLIMDIPO 2026.
 
@@ -90,9 +90,9 @@ Atas perhatian dan kerja sama maraton dari rekan-rekan semua, kami ucapkan terim
       requiresDate: true,
       requiresTime: true,
       requiresPlace: true,
-      content: `[OPENING CEREMONY OLIMDIPO 2026] 🔥🏆
+      content: `*[OPENING CEREMONY OLIMDIPO 2026]* 🔥🏆
 
-Halo Rekan-Rekan {MIKAT_LABEL}! 👋✨
+Halo Rekan-Rekan {MIKAT_LABEL} Universitas Diponegoro! 👋✨
 
 Gong perjuangan akan segera ditabuh! 🎉 Mari kita satukan semangat dan kawal kontingen kebanggaan kita dalam Opening Ceremony OLIMDIPO 2026 yang akan dilaksanakan pada:
 
@@ -119,9 +119,9 @@ Terima kasih atas dedikasi dan kerja samanya! Sampai jumpa di venue! 🚀
       requiresDate: true,
       requiresTime: true,
       requiresPlace: true,
-      content: `[TECHNICAL MEETING OLIMDIPO {SPORT} 2026] 📢
+      content: `*[TECHNICAL MEETING OLIMDIPO {SPORT} 2026]* 📢
 
-Selamat {GREETING} Rekan-Rekan {MIKAT_LABEL}! 🙏
+Selamat {GREETING} Rekan-Rekan {MIKAT_LABEL} Universitas Diponegoro! 🙏
 
 Demi kelancaran dan transparansi kompetisi, kami mengundang perwakilan official/kapten tim dari {FACULTY} untuk menghadiri Technical Meeting (TM) OLIMDIPO 2026 pada:
 
@@ -152,9 +152,9 @@ Terima kasih atas perhatian dan kerja samanya! Bersama kita jaga sportivitas! �
       requiresDate: true,
       requiresTime: true,
       requiresPlace: true,
-      content: `[H-2 PERTANDINGAN {SPORT} OLIMDIPO 2026] ⏳🔥
+      content: `*[H-2 PERTANDINGAN {SPORT} OLIMDIPO 2026]* ⏳🔥
 
-Semangat {GREETING} Rekan-Rekan {MIKAT_LABEL}! 💪🔥
+Semangat {GREETING} Rekan-Rekan {MIKAT_LABEL} Universitas Diponegoro! 💪🔥
 
 Tidak terasa 2 HARI LAGI kontingen terbaik dari {FACULTY} akan mulai berlaga di medan juang OLIMDIPO 2026! 🏟️✨
 
