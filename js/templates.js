@@ -21,7 +21,7 @@ Cara menambah template:
 window.LOWBAT_DATA = {
   faculties: [
     "Fakultas Teknik",
-    "Fakultas Ekonomi dan Bisnis",
+    "Fakultas Ekonomika dan Bisnis",
     "Fakultas Perikanan dan Ilmu Kelautan",
     "Fakultas Sains dan Matematika",
     "Fakultas Ilmu Budaya",
@@ -32,7 +32,7 @@ window.LOWBAT_DATA = {
     "Fakultas Kedokteran",
     "Fakultas Kesehatan Masyarakat",
     "Sekolah Vokasi",
-    "Wilayah dan Daerah"
+    "Wilayah & Daerah"
   ],
 
   mikatOptions: ["Seniora", "Soraya", "Mikatan", "Mikat"],
