@@ -3,7 +3,7 @@
 
   const data = window.LOWBAT_DATA;
   const rundown = Array.isArray(window.RUNDOWN_DATA) ? window.RUNDOWN_DATA : [];
-  const supabaseClient = window.LOWBAT_SUPABASE?.client || null;
+  const tursoApi = window.LOWBAT_TURSO?.apiPath || "/api/history";
 
   if (!data) {
     console.error("LOWBAT_DATA tidak ditemukan. Pastikan js/templates.js sudah dimuat.");
@@ -282,7 +282,7 @@
     if (dom.statDatabaseCaption) {
       dom.statDatabaseCaption.textContent =
         status === "online"
-          ? "Supabase terhubung"
+          ? "Turso terhubung"
           : status === "offline"
             ? "menggunakan cadangan lokal"
             : "mengecek koneksi";
@@ -716,18 +716,27 @@
   }
 
   async function insertSharedRecord(record) {
-    if (!supabaseClient) throw new Error("Supabase belum dikonfigurasi.");
+    if (!tursoApi) throw new Error("Turso belum dikonfigurasi.");
 
-    const { error } = await supabaseClient
-      .from("jarkoman_history")
-      .insert(record);
+    const response = await fetch(tursoApi, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(record)
+    });
 
-    if (error && error.code !== "23505") throw error;
+    const payload = await response.json().catch(() => ({}));
+
+    if (!response.ok) {
+      throw new Error(payload.error || "Gagal menyimpan ke Turso.");
+    }
+
     return true;
   }
 
   async function syncPendingRecords() {
-    if (!supabaseClient || !navigator.onLine) return;
+    if (!tursoApi || !navigator.onLine) return;
 
     const queue = getPendingQueue();
     if (!queue.length) return;
@@ -993,7 +1002,7 @@
         <div class="empty-state" style="grid-column:1/-1">
           <span>☁️</span>
           <h4>Database belum dapat diakses.</h4>
-          <p>Periksa internet, konfigurasi Supabase, dan RLS policy. Jarkoman tetap tersimpan sebagai cadangan lokal pada perangkat ini.</p>
+          <p>Periksa internet dan konfigurasi Turso. Jarkoman tetap tersimpan sebagai cadangan lokal pada perangkat ini.</p>
         </div>
       `;
       return;
@@ -1045,9 +1054,9 @@
   }
 
   async function loadSharedHistory({ silent = false } = {}) {
-    if (!supabaseClient) {
+    if (!tursoApi) {
       state.historyLoading = false;
-      setDatabaseStatus("offline", "Supabase belum dikonfigurasi");
+      setDatabaseStatus("offline", "Turso belum dikonfigurasi");
       renderSharedHistory();
       renderDashboard();
       return false;
@@ -1055,22 +1064,25 @@
 
     if (!silent) {
       state.historyLoading = true;
-      setDatabaseStatus("checking", "Menghubungkan ke Supabase...");
+      setDatabaseStatus("checking", "Menghubungkan ke Turso...");
       renderSharedHistory();
     }
 
     try {
-      const { data: rows, error } = await supabaseClient
-        .from("jarkoman_history")
-        .select(
-          "id, template_title, faculty, mikat_name, sport, event_date, event_time, event_place, generated_text, created_by, created_at"
-        )
-        .order("created_at", { ascending: false })
-        .limit(200);
+      const response = await fetch(tursoApi, {
+        method: "GET",
+        headers: {
+          "Accept": "application/json"
+        }
+      });
 
-      if (error) throw error;
+      const payload = await response.json().catch(() => ({}));
 
-      state.sharedHistory = Array.isArray(rows) ? rows : [];
+      if (!response.ok) {
+        throw new Error(payload.error || "Gagal mengambil riwayat dari Turso.");
+      }
+
+      state.sharedHistory = Array.isArray(payload.rows) ? payload.rows : [];
       state.historyLoading = false;
       setDatabaseStatus("online", "Terhubung — riwayat tersinkron");
       renderSharedHistory();
@@ -1320,7 +1332,7 @@
     switchPage("dashboard");
     setInterval(updateClock, 1000);
 
-    setDatabaseStatus("checking", "Mengecek koneksi Supabase...");
+    setDatabaseStatus("checking", "Mengecek koneksi Turso...");
     await syncPendingRecords();
     await loadSharedHistory({ silent: true });
   }

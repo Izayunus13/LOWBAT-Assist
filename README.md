@@ -107,76 +107,58 @@ Pilihan **Wilayah dan Daerah** sudah diatur agar tidak menampilkan opsi Seniora,
 
 ## Penyimpanan Riwayat
 
-Riwayat jarkoman disimpan pada `localStorage` browser. Data hanya tersimpan pada browser/perangkat yang digunakan dan tidak dikirim ke server.
+Riwayat jarkoman disimpan pada **Turso** melalui API server-side `/api/history`.
 
-Untuk menghapus riwayat, hapus key:
-
-```text
-lowbat-jarkoman-history
-```
-
-melalui menu **Developer Tools → Application → Local Storage**.
-
-## Pengembangan Selanjutnya
-
-- Login khusus staff LO.
-- Database rundown terpusat.
-- Status follow-up tiap fakultas.
-- Notifikasi pertandingan terdekat.
-- Panel admin untuk mengubah template tanpa membuka source code.
-
----
-
-## Riwayat Bersama dengan Supabase
-
-Versi ini sudah terhubung ke tabel Supabase `jarkoman_history`.
-
-Fitur tambahannya:
-
-- Nama staff pembuat pada tahap delegasi.
-- Jarkoman otomatis disimpan ke Supabase setelah generate.
+Fitur:
+- Jarkoman otomatis disimpan ke Turso setelah generate.
 - Menu **Riwayat Bersama** dapat dilihat dari seluruh perangkat.
-- Pencarian dan filter fakultas/jenis jarkoman.
-- Membuka detail dan copy ulang jarkoman.
-- Cadangan lokal apabila internet atau database bermasalah.
+- Pencarian dan filter fakultas/jenis jarkoman tetap sama.
+- Cadangan lokal tetap digunakan jika internet/database bermasalah.
 - Data tertunda akan dicoba disinkronkan kembali saat perangkat online.
 
-### File koneksi
+### Struktur Turso
+
+Jalankan SQL dari:
 
 ```text
-js/supabase-config.js
+turso-setup.sql
 ```
 
-File tersebut hanya boleh berisi:
+pada database Turso. Schema menggunakan SQLite/libSQL.
 
-- Project URL.
-- Publishable key (`sb_publishable_...`).
+### Konfigurasi Turso di Vercel
 
-Jangan pernah memasukkan `sb_secret_...` atau `service_role` ke source code frontend.
-
-### Tabel dan RLS
-
-Kode SQL cadangan tersedia di:
+**Jangan menaruh auth token Turso di JavaScript frontend.** Token disimpan sebagai Environment Variables di Vercel:
 
 ```text
-supabase-setup.sql
+TURSO_DATABASE_URL=libsql://nama-database-nama-organisasi.turso.io
+TURSO_AUTH_TOKEN=token_turso_kamu
 ```
 
-Policy saat ini mengizinkan pengguna website untuk:
+API server ada di:
 
-- Membaca riwayat (`SELECT`).
-- Menambahkan riwayat (`INSERT`).
+```text
+api/history.js
+```
 
-Pengguna website tidak memperoleh izin untuk mengubah atau menghapus data.
+Frontend hanya memanggil:
 
-### Update ke GitHub dan Vercel
+```text
+/api/history
+```
 
-Setelah mengganti file project lokal dengan versi ini:
+### Deploy
+
+Project ini sekarang membutuhkan runtime API Vercel karena token Turso harus tetap server-side.
+
+Setelah menambahkan Environment Variables di Vercel, lakukan deploy/push seperti biasa:
 
 ```powershell
 git add .
-git commit -m "add shared jarkoman history with Supabase"
+git commit -m "migrate shared history from Supabase to Turso"
 git push
 ```
 
-Vercel akan memperbarui website secara otomatis karena repository sudah terhubung.
+### Catatan penting
+
+Tampilan, CSS, generator, rundown, template, dan logic non-database **tidak diubah**. Perubahan hanya pada koneksi/penyimpanan Riwayat Bersama dari Supabase ke Turso.

@@ -1,0 +1,42 @@
+warning: in the working copy of 'index.html', LF will be replaced by CRLF the next time Git touches it
+[1mdiff --git a/index.html b/index.html[m
+[1mindex ec12192..7acb6f1 100644[m
+[1m--- a/index.html[m
+[1m+++ b/index.html[m
+[36m@@ -52,7 +52,7 @@[m
+         <article class="hero-card">[m
+           <div class="hero-copy">[m
+             <span class="hero-badge">⚡ ASSISTANT CENTER LOWBAT</span>[m
+[31m-            <h3>Satu dashboard untuk tetap <em>connected</em>, terarah, dan siap membantu.</h3>[m
+[32m+[m[32m            <h3>Dasboard untuk membantu kalian <em>bekerja</em> dengan efisien dan terarah.</h3>[m
+             <p>Pantau pertandingan terdekat, susun mudah jarkoman, dan copypaste tanpa perlu mengetik ulang dari awal.</p>[m
+             <div class="hero-actions">[m
+               <button class="primary-button" type="button" data-open-generator><span>📣</span>Buat Jarkoman</button>[m
+[36m@@ -65,7 +65,7 @@[m
+         <div class="stats-grid">[m
+           <article class="stat-card"><div class="stat-icon">🏟️</div><div><small>Match Mendatang</small><strong id="statUpcoming">0</strong><span>jadwal tercatat</span></div></article>[m
+           <article class="stat-card"><div class="stat-icon">🔥</div><div><small>Match Hari Ini</small><strong id="statToday">0</strong><span>sesuai rundown</span></div></article>[m
+[31m-          <article class="stat-card"><div class="stat-icon">🗂️</div><div><small>Riwayat Bersama</small><strong id="statGenerated">0</strong><span>tersimpan kedalam database</span></div></article>[m
+[32m+[m[32m          <article class="stat-card"><div class="stat-icon">🗂️</div><div><small>Riwayat Bersama</small><strong id="statGenerated">0</strong><span>tersimpan kedalam history</span></div></article>[m
+           <article class="stat-card"><div class="stat-icon">☁️</div><div><small>Status Database</small><strong id="statDatabaseStatus">...</strong><span id="statDatabaseCaption">mengecek koneksi</span></div></article>[m
+         </div>[m
+ [m
+[36m@@ -199,7 +199,7 @@[m
+       <div class="history-detail-meta" id="historyDetailMeta"></div>[m
+       <div class="history-detail-body"><pre id="historyDetailText"></pre></div>[m
+       <div class="modal-footer">[m
+[31m-        <span class="history-detail-note">Data tersimpan pada Supabase dan terlihat oleh seluruh staff.</span>[m
+[32m+[m[32m        <span class="history-detail-note">Data tersimpan pada Turso dan terlihat oleh seluruh staff.</span>[m
+         <div class="modal-footer-spacer"></div>[m
+         <button class="copy-button" id="copyHistoryDetailButton" type="button">📋 Copy Jarkoman</button>[m
+       </div>[m
+[36m@@ -208,8 +208,7 @@[m
+ [m
+   <div class="toast hidden" id="toast" role="status"><span>⚡</span><p id="toastText">Berhasil disalin!</p></div>[m
+ [m
+[31m-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>[m
+[31m-  <script src="js/supabase-config.js"></script>[m
+[32m+[m[32m  <script src="js/turso-config.js"></script>[m
+   <script src="js/templates.js"></script>[m
+   <script src="js/rundown.js"></script>[m
+   <script src="js/app.js"></script>[m
