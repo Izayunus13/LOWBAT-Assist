@@ -3,7 +3,7 @@
 
   const plottingData = [
     {
-      faculty: "FT",
+      faculty: "Fakultas Teknik",
       people: [
         { name: "Aurora", sports: "Futsal, Karate" },
         { name: "Fariza", sports: "Basket, Atletik" },
@@ -12,7 +12,7 @@
       ]
     },
     {
-      faculty: "SV",
+      faculty: "Sekolah Vokasi",
       people: [
         { name: "Cardio", sports: "Futsal, Karate" },
         { name: "Susan", sports: "Basket, Atletik" },
@@ -21,7 +21,7 @@
       ]
     },
     {
-      faculty: "FH",
+      faculty: "Fakultas Hukum",
       people: [
         { name: "Albany", sports: "Futsal, Karate" },
         { name: "Ibel", sports: "Basket, Atletik" },
@@ -30,7 +30,7 @@
       ]
     },
     {
-      faculty: "FISIP",
+      faculty: "Fakultas Ilmu Sosial dan Ilmu Politik",
       people: [
         { name: "Anisa Meili", sports: "Futsal, Karate" },
         { name: "Amanda", sports: "Basket, Atletik" },
@@ -39,7 +39,7 @@
       ]
     },
     {
-      faculty: "FPIK",
+      faculty: "Fakultas Perikanan dan Ilmu Kelautan",
       people: [
         { name: "Adzanandya", sports: "Futsal, Karate, Badminton" },
         { name: "Salma", sports: "Basket, Atletik, Taekwondo" },
@@ -47,7 +47,7 @@
       ]
     },
     {
-      faculty: "FIB",
+      faculty: "Fakultas Ilmu Budaya",
       people: [
         { name: "Satria", sports: "Futsal, Karate, Badminton" },
         { name: "Jannaz", sports: "Basket, Atletik, Taekwondo" },
@@ -55,7 +55,7 @@
       ]
     },
     {
-      faculty: "FSM",
+      faculty: "Fakultas Sains dan Matematika",
       people: [
         { name: "Sanesa", sports: "Futsal, Karate, Badminton" },
         { name: "Zefanya", sports: "Basket, Atletik, Taekwondo" },
@@ -63,7 +63,7 @@
       ]
     },
     {
-      faculty: "FEB",
+      faculty: "Fakultas Ekonomika dan Bisnis",
       people: [
         { name: "Hecira", sports: "Futsal, Karate, Badminton" },
         { name: "Cici", sports: "Basket, Atletik, Taekwondo" },
@@ -71,7 +71,7 @@
       ]
     },
     {
-      faculty: "FK",
+      faculty: "Fakultas Kedokteran",
       people: [
         { name: "Kenny", sports: "Futsal, Karate, Badminton" },
         { name: "Cleovea", sports: "Basket, Atletik, Taekwondo" },
@@ -79,7 +79,7 @@
       ]
     },
     {
-      faculty: "PSDKU",
+      faculty: "Wilayah dan Daerah/PSDKU",
       people: [
         { name: "Irma", sports: "Futsal, Karate, Badminton" },
         { name: "Ayesha", sports: "Basket, Atletik, Taekwondo" },
@@ -87,7 +87,7 @@
       ]
     },
     {
-      faculty: "FPsi",
+      faculty: "Fakultas Psikologi",
       people: [
         { name: "Vanessa", sports: "Futsal, Karate, Badminton" },
         { name: "Jihan", sports: "Basket, Atletik, Taekwondo" },
@@ -95,7 +95,7 @@
       ]
     },
     {
-      faculty: "FKM",
+      faculty: "Fakultas Kesehatan Masyarakat",
       people: [
         { name: "Chiara", sports: "Futsal, Karate, Badminton" },
         { name: "Fellysha", sports: "Basket, Atletik, Taekwondo" },
@@ -103,7 +103,7 @@
       ]
     },
     {
-      faculty: "FPP",
+      faculty: "Fakultas Peternakan dan Pertanian",
       people: [
         { name: "Regina", sports: "Futsal, Karate, Badminton" },
         { name: "Maria", sports: "Basket, Atletik, Taekwondo" },
