@@ -131,7 +131,9 @@
       <article class="pj-faculty-card">
         <div class="pj-faculty-head">
           <div class="pj-faculty-title">
-            <span class="pj-faculty-icon">${escapeHTML(item.faculty)}</span>
+            <span class="pj-faculty-icon">
+            <img src="assets/undip.png" alt="Logo Undip">
+            </span>
             <div><strong>${escapeHTML(item.faculty)}</strong><small>Plottingan Penanggung Jawab</small></div>
           </div>
           <span class="pj-count">${item.people.length} PJ</span>
