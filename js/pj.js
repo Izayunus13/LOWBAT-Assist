@@ -5,109 +5,109 @@
     {
       faculty: "Fakultas Teknik",
       people: [
-        { name: "Aurora", sports: "Futsal, Karate" },
-        { name: "Fariza", sports: "Basket, Atletik" },
-        { name: "Rifat", sports: "Sepak Bola, Silat, Taekwondo" },
-        { name: "Bunga", sports: "Voli, Badminton" }
+        { name: "Aurora Saphira", sports: "Futsal, Karate" },
+        { name: "Fariza Nur Khairani", sports: "Basket, Atletik" },
+        { name: "Rifat Athallah", sports: "Sepak Bola, Silat, Taekwondo" },
+        { name: "Astianda Bunga", sports: "Voli, Badminton" }
       ]
     },
     {
       faculty: "Sekolah Vokasi",
       people: [
-        { name: "Cardio", sports: "Futsal, Karate" },
-        { name: "Susan", sports: "Basket, Atletik" },
+        { name: "Cardio Cholish", sports: "Futsal, Karate" },
+        { name: "Susan Meilyana", sports: "Basket, Atletik" },
         { name: "Nasya Dea", sports: "Sepak Bola, Silat, Taekwondo" },
-        { name: "Shindy", sports: "Voli, Badminton" }
+        { name: "Shindy Fitriani", sports: "Voli, Badminton" }
       ]
     },
     {
       faculty: "Fakultas Hukum",
       people: [
-        { name: "Albany", sports: "Futsal, Karate" },
-        { name: "Ibel", sports: "Basket, Atletik" },
-        { name: "Alya", sports: "Sepak Bola, Silat, Taekwondo" },
-        { name: "Aqilla", sports: "Voli, Badminton" }
+        { name: "Albany Brilliano", sports: "Futsal, Karate" },
+        { name: "Aprillya Putri", sports: "Basket, Atletik" },
+        { name: "Alya Fortuna", sports: "Sepak Bola, Silat, Taekwondo" },
+        { name: "Aqilla Zana", sports: "Voli, Badminton" }
       ]
     },
     {
       faculty: "Fakultas Ilmu Sosial dan Ilmu Politik",
       people: [
         { name: "Anisa Meili", sports: "Futsal, Karate" },
-        { name: "Amanda", sports: "Basket, Atletik" },
-        { name: "Selma", sports: "Sepak Bola, Silat, Taekwondo" },
-        { name: "Tulaini", sports: "Voli, Badminton" }
+        { name: "Amanda Tabina", sports: "Basket, Atletik" },
+        { name: "Sellma Aulya", sports: "Sepak Bola, Silat, Taekwondo" },
+        { name: "Anisa Tulaini", sports: "Voli, Badminton" }
       ]
     },
     {
       faculty: "Fakultas Perikanan dan Ilmu Kelautan",
       people: [
         { name: "Adzanandya", sports: "Futsal, Karate, Badminton" },
-        { name: "Salma", sports: "Basket, Atletik, Taekwondo" },
-        { name: "Alodia", sports: "Sepak Bola, Silat, Voli" }
+        { name: "Salma Hari", sports: "Basket, Atletik, Taekwondo" },
+        { name: "Alodia Permata", sports: "Sepak Bola, Silat, Voli" }
       ]
     },
     {
       faculty: "Fakultas Ilmu Budaya",
       people: [
-        { name: "Satria", sports: "Futsal, Karate, Badminton" },
-        { name: "Jannaz", sports: "Basket, Atletik, Taekwondo" },
-        { name: "Sila", sports: "Sepak Bola, Silat, Voli" }
+        { name: "Rhizky Satria", sports: "Futsal, Karate, Badminton" },
+        { name: "Jannazra", sports: "Basket, Atletik, Taekwondo" },
+        { name: "Sila Lituhayu", sports: "Sepak Bola, Silat, Voli" }
       ]
     },
     {
       faculty: "Fakultas Sains dan Matematika",
       people: [
-        { name: "Sanesa", sports: "Futsal, Karate, Badminton" },
-        { name: "Zefanya", sports: "Basket, Atletik, Taekwondo" },
-        { name: "Hafla", sports: "Sepak Bola, Silat, Voli" }
+        { name: "Sanesa Triani", sports: "Futsal, Karate, Badminton" },
+        { name: "Nikeisha Zefanya", sports: "Basket, Atletik, Taekwondo" },
+        { name: "Hafia Farah", sports: "Sepak Bola, Silat, Voli" }
       ]
     },
     {
       faculty: "Fakultas Ekonomika dan Bisnis",
       people: [
-        { name: "Hecira", sports: "Futsal, Karate, Badminton" },
-        { name: "Cici", sports: "Basket, Atletik, Taekwondo" },
-        { name: "Berliana", sports: "Sepak Bola, Silat, Voli" }
+        { name: "Hecira Aulianisa", sports: "Futsal, Karate, Badminton" },
+        { name: "Saxia Roswita", sports: "Basket, Atletik, Taekwondo" },
+        { name: "Berliana Dewi", sports: "Sepak Bola, Silat, Voli" }
       ]
     },
     {
       faculty: "Fakultas Kedokteran",
       people: [
-        { name: "Kenny", sports: "Futsal, Karate, Badminton" },
-        { name: "Cleovea", sports: "Basket, Atletik, Taekwondo" },
-        { name: "Nevia", sports: "Sepak Bola, Silat, Voli" }
+        { name: "Kenisha Poety", sports: "Futsal, Karate, Badminton" },
+        { name: "Cleova Khansa", sports: "Basket, Atletik, Taekwondo" },
+        { name: "Nevia Bilqis", sports: "Sepak Bola, Silat, Voli" }
       ]
     },
     {
       faculty: "Wilayah dan Daerah/PSDKU",
       people: [
-        { name: "Irma", sports: "Futsal, Karate, Badminton" },
-        { name: "Ayesha", sports: "Basket, Atletik, Taekwondo" },
-        { name: "Nila", sports: "Sepak Bola, Silat, Voli" }
+        { name: "Irma Carissa", sports: "Futsal, Karate, Badminton" },
+        { name: "Ayesha Bilqis", sports: "Basket, Atletik, Taekwondo" },
+        { name: "Nila Laela", sports: "Sepak Bola, Silat, Voli" }
       ]
     },
     {
       faculty: "Fakultas Psikologi",
       people: [
-        { name: "Vanessa", sports: "Futsal, Karate, Badminton" },
-        { name: "Jihan", sports: "Basket, Atletik, Taekwondo" },
-        { name: "Rizka", sports: "Sepak Bola, Silat, Voli" }
+        { name: "Vanessa Laura", sports: "Futsal, Karate, Badminton" },
+        { name: "Jihan Aulia", sports: "Basket, Atletik, Taekwondo" },
+        { name: "Rizka Auralya", sports: "Sepak Bola, Silat, Voli" }
       ]
     },
     {
       faculty: "Fakultas Kesehatan Masyarakat",
       people: [
-        { name: "Chiara", sports: "Futsal, Karate, Badminton" },
-        { name: "Fellysha", sports: "Basket, Atletik, Taekwondo" },
-        { name: "Rara", sports: "Sepak Bola, Silat, Voli" }
+        { name: "Salsabila Chiara", sports: "Futsal, Karate, Badminton" },
+        { name: "Fellysha Pramudhita", sports: "Basket, Atletik, Taekwondo" },
+        { name: "Siti Rahma", sports: "Sepak Bola, Silat, Voli" }
       ]
     },
     {
       faculty: "Fakultas Peternakan dan Pertanian",
       people: [
-        { name: "Regina", sports: "Futsal, Karate, Badminton" },
-        { name: "Maria", sports: "Basket, Atletik, Taekwondo" },
-        { name: "Savaira", sports: "Sepak Bola, Silat, Voli" }
+        { name: "Regina Dinda", sports: "Futsal, Karate, Badminton" },
+        { name: "Maria Helena", sports: "Basket, Atletik, Taekwondo" },
+        { name: "Savaira Nashita", sports: "Sepak Bola, Silat, Voli" }
       ]
     }
   ];
