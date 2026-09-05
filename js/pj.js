@@ -1,6 +1,10 @@
 (() => {
   "use strict";
 
+  /* =========================================================
+     DATA PLOTTINGAN PENANGGUNG JAWAB
+     ========================================================= */
+
   const plottingData = [
     {
       faculty: "Fakultas Teknik",
@@ -11,6 +15,7 @@
         { name: "Astianda Bunga", sports: "Voli, Badminton" }
       ]
     },
+
     {
       faculty: "Sekolah Vokasi",
       people: [
@@ -20,6 +25,7 @@
         { name: "Shindy Fitriani", sports: "Voli, Badminton" }
       ]
     },
+
     {
       faculty: "Fakultas Hukum",
       people: [
@@ -29,6 +35,7 @@
         { name: "Aqilla Zana", sports: "Voli, Badminton" }
       ]
     },
+
     {
       faculty: "Fakultas Ilmu Sosial dan Ilmu Politik",
       people: [
@@ -38,6 +45,7 @@
         { name: "Anisa Tulaini", sports: "Voli, Badminton" }
       ]
     },
+
     {
       faculty: "Fakultas Perikanan dan Ilmu Kelautan",
       people: [
@@ -46,6 +54,7 @@
         { name: "Alodia Permata", sports: "Sepak Bola, Silat, Voli" }
       ]
     },
+
     {
       faculty: "Fakultas Ilmu Budaya",
       people: [
@@ -54,6 +63,7 @@
         { name: "Sila Lituhayu", sports: "Sepak Bola, Silat, Voli" }
       ]
     },
+
     {
       faculty: "Fakultas Sains dan Matematika",
       people: [
@@ -62,6 +72,7 @@
         { name: "Hafia Farah", sports: "Sepak Bola, Silat, Voli" }
       ]
     },
+
     {
       faculty: "Fakultas Ekonomika dan Bisnis",
       people: [
@@ -70,6 +81,7 @@
         { name: "Berliana Dewi", sports: "Sepak Bola, Silat, Voli" }
       ]
     },
+
     {
       faculty: "Fakultas Kedokteran",
       people: [
@@ -78,6 +90,7 @@
         { name: "Nevia Bilqis", sports: "Sepak Bola, Silat, Voli" }
       ]
     },
+
     {
       faculty: "Wilayah dan Daerah/PSDKU",
       people: [
@@ -86,6 +99,7 @@
         { name: "Nila Laela", sports: "Sepak Bola, Silat, Voli" }
       ]
     },
+
     {
       faculty: "Fakultas Psikologi",
       people: [
@@ -94,6 +108,7 @@
         { name: "Rizka Auralya", sports: "Sepak Bola, Silat, Voli" }
       ]
     },
+
     {
       faculty: "Fakultas Kesehatan Masyarakat",
       people: [
@@ -102,6 +117,7 @@
         { name: "Siti Rahma", sports: "Sepak Bola, Silat, Voli" }
       ]
     },
+
     {
       faculty: "Fakultas Peternakan dan Pertanian",
       people: [
@@ -112,105 +128,474 @@
     }
   ];
 
-  const escapeHTML = (value) => String(value ?? "")
-    .replaceAll("&", "&amp;")
-    .replaceAll("<", "&lt;")
-    .replaceAll(">", "&gt;")
-    .replaceAll('"', "&quot;")
-    .replaceAll("'", "&#039;");
 
-  function makeFacultyCard(item) {
-    const rows = item.people.map((person) => `
-      <div class="pj-row">
-        <div class="pj-name"><span class="pj-name-dot"></span><span>${escapeHTML(person.name)}</span></div>
-        <div class="pj-sports">${escapeHTML(person.sports)}</div>
-      </div>
-    `).join("");
+  /* =========================================================
+     HELPER
+     ========================================================= */
+
+  const escapeHTML = (value) =>
+    String(value ?? "")
+      .replaceAll("&", "&amp;")
+      .replaceAll("<", "&lt;")
+      .replaceAll(">", "&gt;")
+      .replaceAll('"', "&quot;")
+      .replaceAll("'", "&#039;");
+
+
+  /* =========================================================
+     FACULTY CARD
+     ========================================================= */
+
+  function makeFacultyCard(item, index) {
+    const rows = item.people
+      .map(
+        (person) => `
+          <div class="pj-row">
+
+            <div class="pj-name">
+              <span class="pj-name-dot"></span>
+              <span>${escapeHTML(person.name)}</span>
+            </div>
+
+            <div class="pj-sports">
+              ${escapeHTML(person.sports)}
+            </div>
+
+          </div>
+        `
+      )
+      .join("");
 
     return `
-      <article class="pj-faculty-card">
-        <div class="pj-faculty-head">
+      <article
+        class="pj-faculty-card"
+        data-pj-card="${index}"
+      >
+
+        <div
+          class="pj-faculty-head"
+          role="button"
+          tabindex="0"
+          aria-expanded="false"
+          aria-controls="pj-collapse-${index}"
+        >
+
           <div class="pj-faculty-title">
+
             <span class="pj-faculty-icon">
-            <img src="assets/undip.png" alt="Logo Undip">
+              <img
+                src="assets/undip.png"
+                alt="Logo Undip"
+                draggable="false"
+              >
             </span>
-            <div><strong>${escapeHTML(item.faculty)}</strong><small>Plottingan Penanggung Jawab</small></div>
+
+            <div class="pj-faculty-info">
+              <strong>
+                ${escapeHTML(item.faculty)}
+              </strong>
+
+              <small>
+                Plottingan Penanggung Jawab
+              </small>
+            </div>
+
           </div>
-          <span class="pj-count">${item.people.length} PJ</span>
+
+
+          <div class="pj-head-actions">
+
+            <span class="pj-count">
+              ${item.people.length} PJ
+            </span>
+
+            <span
+              class="pj-chevron"
+              aria-hidden="true"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+              >
+                <path
+                  d="M6 9L12 15L18 9"
+                  stroke="currentColor"
+                  stroke-width="2.2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </span>
+
+          </div>
+
         </div>
-        <div class="pj-list">${rows}</div>
+
+
+        <div
+          class="pj-collapse"
+          id="pj-collapse-${index}"
+        >
+
+          <div class="pj-list">
+            ${rows}
+          </div>
+
+        </div>
+
       </article>
     `;
   }
+
+
+  /* =========================================================
+     NAVIGATION
+     ========================================================= */
 
   function injectNavigation() {
     const nav = document.querySelector(".sidebar-nav");
-    if (!nav || nav.querySelector('[data-page="pj"]')) return;
+
+    if (!nav) return;
+
+    if (nav.querySelector('[data-page="pj"]')) return;
+
 
     const guideButton = nav.querySelector('[data-page="guide"]');
+
     const button = document.createElement("button");
+
     button.className = "nav-item";
     button.type = "button";
     button.dataset.page = "pj";
-    button.innerHTML = '<span class="nav-icon">👥</span><span><strong>Penanggung Jawab</strong><small>Plottingan tiap fakultas</small></span>';
 
-    if (guideButton) nav.insertBefore(button, guideButton);
-    else nav.appendChild(button);
+    button.innerHTML = `
+      <span class="nav-icon">👥</span>
+
+      <span>
+        <strong>Penanggung Jawab</strong>
+        <small>Plottingan tiap fakultas</small>
+      </span>
+    `;
+
+
+    if (guideButton) {
+      nav.insertBefore(button, guideButton);
+    } else {
+      nav.appendChild(button);
+    }
   }
+
+
+  /* =========================================================
+     PAGE
+     ========================================================= */
 
   function injectPage() {
     const main = document.querySelector(".main-content");
-    if (!main || document.getElementById("page-pj")) return;
+
+    if (!main) return;
+
+    if (document.getElementById("page-pj")) return;
+
 
     const guidePage = document.getElementById("page-guide");
-    const totalPeople = plottingData.reduce((total, item) => total + item.people.length, 0);
+
+    const totalPeople = plottingData.reduce(
+      (total, item) => total + item.people.length,
+      0
+    );
+
 
     const section = document.createElement("section");
+
     section.className = "page-section";
     section.id = "page-pj";
+
+
     section.innerHTML = `
+
       <article class="panel pj-hero">
-        <div>
-          <p class="section-label">PLOTTINGAN LO</p>
-          <h3>Penanggung Jawab Setiap Fakultas</h3>
-          <p>Lihat pembagian penanggung jawab tiap fakultas beserta cabang olahraga yang menjadi plottingannya.</p>
+
+        <div class="pj-hero-content">
+
+          <p class="section-label">
+            PLOTTINGAN LO
+          </p>
+
+          <h3>
+            Penanggung Jawab Setiap Fakultas
+          </h3>
+
+          <p>
+            Pilih fakultas untuk melihat siapa saja penanggung jawab
+            beserta cabang olahraga yang menjadi plottingannya.
+          </p>
+
         </div>
-        <div class="pj-summary" aria-label="Ringkasan plottingan">
-          <div class="pj-summary-card"><strong>${plottingData.length}</strong><span>Fakultas / Delegasi</span></div>
-          <div class="pj-summary-card"><strong>${totalPeople}</strong><span>Penanggung Jawab</span></div>
+
+
+        <div
+          class="pj-summary"
+          aria-label="Ringkasan plottingan"
+        >
+
+          <div class="pj-summary-card">
+            <strong>
+              ${plottingData.length}
+            </strong>
+
+            <span>
+              Fakultas / Delegasi
+            </span>
+          </div>
+
+
+          <div class="pj-summary-card">
+            <strong>
+              ${totalPeople}
+            </strong>
+
+            <span>
+              Penanggung Jawab
+            </span>
+          </div>
+
         </div>
+
       </article>
 
+
       <div class="pj-grid">
-        ${plottingData.map(makeFacultyCard).join("")}
+
+        ${plottingData
+          .map((item, index) => makeFacultyCard(item, index))
+          .join("")}
+
       </div>
 
+
       <div class="pj-note">
-        <span>📌</span>
-        <p>Nama penanggung jawab dan cabang olahraga pada halaman ini mengikuti plottingan yang diberikan. Jika ada perubahan pembagian, cukup edit data pada <code>js/pj.js</code> tanpa mengganggu generator, history, rundown, maupun panduan.</p>
+
+        <span>💡</span>
+
+        <p>
+          Klik salah satu fakultas untuk melihat detail pembagian
+          penanggung jawab dan cabang olahraga.
+        </p>
+
       </div>
     `;
 
-    if (guidePage) main.insertBefore(section, guidePage);
-    else main.appendChild(section);
+
+    if (guidePage) {
+      main.insertBefore(section, guidePage);
+    } else {
+      main.appendChild(section);
+    }
   }
 
-  function keepPageTitle() {
-    const pageTitle = document.getElementById("pageTitle");
-    const pjPage = document.getElementById("page-pj");
-    const pjButton = document.querySelector('[data-page="pj"]');
-    if (!pageTitle || !pjPage || !pjButton) return;
 
-    pjButton.addEventListener("click", () => {
-      window.setTimeout(() => {
-        if (pjPage.classList.contains("active")) {
-          pageTitle.textContent = "Penanggung Jawab";
+  /* =========================================================
+     ACCORDION
+     ========================================================= */
+
+  function initFacultyAccordion() {
+    const cards = document.querySelectorAll(".pj-faculty-card");
+
+    if (!cards.length) return;
+
+
+    cards.forEach((card) => {
+      const header = card.querySelector(".pj-faculty-head");
+
+      if (!header) return;
+
+
+      const toggleCard = () => {
+        const isCurrentlyOpen =
+          card.classList.contains("active");
+
+
+        /* -----------------------------------------
+           Tutup semua fakultas terlebih dahulu
+           ----------------------------------------- */
+
+        cards.forEach((otherCard) => {
+          otherCard.classList.remove("active");
+
+          const otherHeader =
+            otherCard.querySelector(".pj-faculty-head");
+
+          if (otherHeader) {
+            otherHeader.setAttribute(
+              "aria-expanded",
+              "false"
+            );
+          }
+        });
+
+
+        /* -----------------------------------------
+           Kalau sebelumnya belum terbuka,
+           buka fakultas yang diklik
+           ----------------------------------------- */
+
+        if (!isCurrentlyOpen) {
+          card.classList.add("active");
+
+          header.setAttribute(
+            "aria-expanded",
+            "true"
+          );
         }
-      }, 0);
+      };
+
+
+      /* Klik mouse / touchscreen */
+      header.addEventListener(
+        "click",
+        toggleCard
+      );
+
+
+      /* Keyboard accessibility */
+      header.addEventListener(
+        "keydown",
+        (event) => {
+
+          if (
+            event.key === "Enter" ||
+            event.key === " "
+          ) {
+            event.preventDefault();
+
+            toggleCard();
+          }
+
+        }
+      );
     });
   }
 
+
+  /* =========================================================
+     PAGE TITLE
+     ========================================================= */
+
+  function keepPageTitle() {
+    const pageTitle =
+      document.getElementById("pageTitle");
+
+    const pjPage =
+      document.getElementById("page-pj");
+
+    const pjButton =
+      document.querySelector(
+        '[data-page="pj"]'
+      );
+
+
+    if (
+      !pageTitle ||
+      !pjPage ||
+      !pjButton
+    ) {
+      return;
+    }
+
+
+    pjButton.addEventListener(
+      "click",
+      () => {
+
+        window.setTimeout(() => {
+
+          if (
+            pjPage.classList.contains("active")
+          ) {
+            pageTitle.textContent =
+              "Penanggung Jawab";
+          }
+
+        }, 0);
+
+      }
+    );
+  }
+
+
+  /* =========================================================
+     OPTIONAL: CLOSE ACCORDION
+     SAAT PINDAH HALAMAN
+     ========================================================= */
+
+  function resetAccordionWhenLeavingPage() {
+    const navButtons =
+      document.querySelectorAll(
+        ".sidebar-nav .nav-item"
+      );
+
+
+    navButtons.forEach((button) => {
+
+      if (
+        button.dataset.page === "pj"
+      ) {
+        return;
+      }
+
+
+      button.addEventListener(
+        "click",
+        () => {
+
+          const cards =
+            document.querySelectorAll(
+              ".pj-faculty-card"
+            );
+
+
+          cards.forEach((card) => {
+
+            card.classList.remove(
+              "active"
+            );
+
+
+            const header =
+              card.querySelector(
+                ".pj-faculty-head"
+              );
+
+
+            if (header) {
+              header.setAttribute(
+                "aria-expanded",
+                "false"
+              );
+            }
+
+          });
+
+        }
+      );
+
+    });
+  }
+
+
+  /* =========================================================
+     INIT
+     ========================================================= */
+
   injectNavigation();
+
   injectPage();
+
   keepPageTitle();
+
+  initFacultyAccordion();
+
+  resetAccordionWhenLeavingPage();
+
 })();

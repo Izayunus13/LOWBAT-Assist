@@ -1,234 +1,1017 @@
 /* =========================================================
    PENANGGUNG JAWAB / PLOTTINGAN FAKULTAS
-   File tambahan. Tidak mengubah style utama LOWBAT Assist.
+   LOWBAT ASSIST
+
+   - Faculty accordion
+   - Interactive hover
+   - Smooth expand / collapse
+   - Responsive
+   - Tidak mengubah styles.css utama
+   ========================================================= */
+
+
+/* =========================================================
+   HERO
    ========================================================= */
 
 .pj-hero {
+  position: relative;
   min-height: 220px;
   padding: 28px;
+
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 28px;
+
+  overflow: hidden;
+
   background:
-    linear-gradient(118deg, rgba(30,16,8,.97), rgba(55,21,5,.78)),
-    url("../assets/background-lowbat.png") center 34%/cover;
+    linear-gradient(
+      118deg,
+      rgba(30, 16, 8, .97),
+      rgba(55, 21, 5, .78)
+    ),
+    url("../assets/background-lowbat.png") center 34% / cover;
+
+  border: 1px solid rgba(255, 195, 71, .13);
 }
+
+
+/* Glow dekoratif */
+.pj-hero::before {
+  content: "";
+
+  position: absolute;
+  width: 280px;
+  height: 280px;
+
+  top: -160px;
+  right: 120px;
+
+  border-radius: 50%;
+
+  background: rgba(255, 166, 0, .08);
+  filter: blur(55px);
+
+  pointer-events: none;
+}
+
+
+/* Glow kedua */
+.pj-hero::after {
+  content: "";
+
+  position: absolute;
+  width: 190px;
+  height: 190px;
+
+  bottom: -125px;
+  left: 28%;
+
+  border-radius: 50%;
+
+  background: rgba(255, 105, 0, .06);
+  filter: blur(45px);
+
+  pointer-events: none;
+}
+
+
+.pj-hero-content {
+  position: relative;
+  z-index: 1;
+}
+
 
 .pj-hero h3 {
   margin: 3px 0 8px;
+
   font-size: clamp(1.8rem, 3vw, 2.8rem);
+  line-height: 1.05;
 }
+
 
 .pj-hero p:not(.section-label) {
   max-width: 760px;
   margin: 0;
+
   color: var(--muted);
+
   line-height: 1.7;
 }
 
+
+/* =========================================================
+   SUMMARY
+   ========================================================= */
+
 .pj-summary {
+  position: relative;
+  z-index: 1;
+
   flex: 0 0 auto;
+
   display: grid;
   grid-template-columns: repeat(2, minmax(105px, 1fr));
   gap: 10px;
 }
 
+
 .pj-summary-card {
+  position: relative;
+
   min-width: 120px;
   padding: 15px 18px;
+
   display: grid;
-  gap: 1px;
-  border: 1px solid rgba(255,195,71,.16);
+  gap: 2px;
+
+  overflow: hidden;
+
+  border: 1px solid rgba(255, 195, 71, .16);
   border-radius: 16px;
-  background: rgba(7,5,4,.55);
+
+  background: rgba(7, 5, 4, .55);
+
   backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  transition:
+    transform .3s ease,
+    border-color .3s ease,
+    background .3s ease;
 }
+
+
+.pj-summary-card:hover {
+  transform: translateY(-3px);
+
+  border-color: rgba(255, 195, 71, .32);
+
+  background: rgba(255, 195, 71, .075);
+}
+
 
 .pj-summary-card strong {
   color: var(--gold-light);
+
   font-family: "Baloo 2", sans-serif;
+
   font-size: 1.65rem;
   line-height: 1;
 }
 
+
 .pj-summary-card span {
   color: var(--muted);
+
   font-size: .68rem;
   font-weight: 800;
 }
 
+
+/* =========================================================
+   GRID
+   ========================================================= */
+
 .pj-grid {
   margin-top: 20px;
+
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 18px;
+
+  align-items: start;
+
+  gap: 16px;
 }
+
+
+/* =========================================================
+   FACULTY CARD
+   ========================================================= */
 
 .pj-faculty-card {
+  position: relative;
+
   overflow: hidden;
+
   border: 1px solid var(--line);
-  border-radius: 22px;
-  background: linear-gradient(145deg, rgba(27,18,11,.93), rgba(13,10,8,.9));
-  box-shadow: var(--shadow);
+  border-radius: 20px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(27, 18, 11, .94),
+      rgba(13, 10, 8, .92)
+    );
+
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, .16);
+
   backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+
+  transition:
+    transform .3s ease,
+    border-color .3s ease,
+    box-shadow .3s ease,
+    background .3s ease;
 }
 
+
+/* Hover card */
+.pj-faculty-card:hover {
+  transform: translateY(-2px);
+
+  border-color: rgba(255, 195, 71, .26);
+
+  box-shadow:
+    0 16px 38px rgba(0, 0, 0, .24),
+    0 0 18px rgba(255, 166, 0, .025);
+}
+
+
+/* Kondisi terbuka */
+.pj-faculty-card.active {
+  border-color: rgba(255, 195, 71, .38);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(31, 20, 12, .97),
+      rgba(14, 10, 8, .95)
+    );
+
+  box-shadow:
+    0 18px 46px rgba(0, 0, 0, .28),
+    0 0 24px rgba(255, 166, 0, .035);
+}
+
+
+/* =========================================================
+   FACULTY HEADER
+   ========================================================= */
+
 .pj-faculty-head {
-  min-height: 64px;
-  padding: 13px 17px;
+  position: relative;
+
+  min-height: 68px;
+  padding: 13px 16px;
+
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 14px;
-  border-bottom: 1px solid rgba(255,255,255,.07);
-  background: linear-gradient(135deg, rgba(255,195,71,.13), rgba(255,105,0,.06));
+
+  cursor: pointer;
+  user-select: none;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 195, 71, .105),
+      rgba(255, 105, 0, .035)
+    );
+
+  transition:
+    background .3s ease,
+    padding .3s ease;
 }
 
+
+/* Garis glow bawah header */
+.pj-faculty-head::after {
+  content: "";
+
+  position: absolute;
+
+  left: 16px;
+  right: 16px;
+  bottom: 0;
+
+  height: 1px;
+
+  opacity: 0;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 195, 71, .3),
+      transparent
+    );
+
+  transition: opacity .3s ease;
+}
+
+
+.pj-faculty-head:hover {
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 195, 71, .16),
+      rgba(255, 105, 0, .07)
+    );
+}
+
+
+.pj-faculty-card.active .pj-faculty-head {
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 195, 71, .18),
+      rgba(255, 105, 0, .075)
+    );
+}
+
+
+.pj-faculty-card.active .pj-faculty-head::after {
+  opacity: 1;
+}
+
+
+.pj-faculty-head:focus-visible {
+  outline: 2px solid rgba(255, 195, 71, .5);
+  outline-offset: -3px;
+}
+
+
+/* =========================================================
+   FACULTY TITLE
+   ========================================================= */
+
 .pj-faculty-title {
+  min-width: 0;
+
   display: flex;
   align-items: center;
+
   gap: 11px;
 }
 
-.pj-faculty-icon {
-    width: 38px;
-    height: 38px;
-    display: grid;
-    place-items: center;
-    flex: 0 0 38px;
-}
 
-.pj-faculty-icon img {
-    width: 38px;
-    height: 38px;
-    object-fit: contain;
-}
+.pj-faculty-info {
+  min-width: 0;
 
-.pj-faculty-title div {
   display: grid;
+
   gap: 1px;
 }
 
+
 .pj-faculty-title strong {
-  font-size: .98rem;
+  display: block;
+
+  overflow: hidden;
+
+  color: #fff8ef;
+
+  font-size: .96rem;
+  line-height: 1.25;
+
+  text-overflow: ellipsis;
 }
 
-.pj-faculty-title small,
-.pj-count {
+
+.pj-faculty-title small {
+  display: block;
+
+  margin-top: 2px;
+
   color: var(--muted);
-  font-size: .66rem;
+
+  font-size: .65rem;
 }
+
+
+/* =========================================================
+   LOGO UNDIP
+   ========================================================= */
+
+.pj-faculty-icon {
+  width: 39px;
+  height: 39px;
+
+  display: grid;
+  place-items: center;
+
+  flex: 0 0 39px;
+
+  transition:
+    transform .35s ease,
+    filter .35s ease;
+}
+
+
+.pj-faculty-icon img {
+  width: 39px;
+  height: 39px;
+
+  display: block;
+
+  object-fit: contain;
+
+  filter:
+    drop-shadow(0 3px 7px rgba(0, 0, 0, .25));
+}
+
+
+/* Logo sedikit hidup ketika hover */
+.pj-faculty-card:hover .pj-faculty-icon {
+  transform: scale(1.05);
+}
+
+
+/* Logo fakultas aktif */
+.pj-faculty-card.active .pj-faculty-icon {
+  transform: scale(1.07);
+
+  filter:
+    drop-shadow(0 0 8px rgba(255, 195, 71, .14));
+}
+
+
+/* =========================================================
+   HEADER RIGHT
+   ========================================================= */
+
+.pj-head-actions {
+  flex: 0 0 auto;
+
+  display: flex;
+  align-items: center;
+
+  gap: 8px;
+}
+
+
+/* =========================================================
+   PJ COUNT
+   ========================================================= */
 
 .pj-count {
   padding: 5px 9px;
-  border: 1px solid rgba(255,195,71,.15);
-  border-radius: 999px;
-  background: rgba(255,195,71,.06);
+
   white-space: nowrap;
+
+  color: var(--muted);
+
+  border: 1px solid rgba(255, 195, 71, .15);
+  border-radius: 999px;
+
+  background: rgba(255, 195, 71, .055);
+
+  font-size: .65rem;
   font-weight: 800;
+
+  transition:
+    color .3s ease,
+    background .3s ease,
+    border-color .3s ease;
 }
+
+
+.pj-faculty-card:hover .pj-count {
+  color: #f3ddbd;
+
+  border-color: rgba(255, 195, 71, .25);
+
+  background: rgba(255, 195, 71, .08);
+}
+
+
+.pj-faculty-card.active .pj-count {
+  color: var(--gold-light);
+
+  border-color: rgba(255, 195, 71, .28);
+
+  background: rgba(255, 195, 71, .1);
+}
+
+
+/* =========================================================
+   CHEVRON
+   ========================================================= */
+
+.pj-chevron {
+  width: 29px;
+  height: 29px;
+
+  display: grid;
+  place-items: center;
+
+  flex: 0 0 29px;
+
+  color: var(--gold-light);
+
+  border: 1px solid rgba(255, 195, 71, .13);
+  border-radius: 9px;
+
+  background: rgba(255, 195, 71, .045);
+
+  transition:
+    transform .42s cubic-bezier(.2, .8, .2, 1),
+    background .3s ease,
+    border-color .3s ease;
+}
+
+
+.pj-chevron svg {
+  width: 14px;
+  height: 14px;
+}
+
+
+.pj-faculty-head:hover .pj-chevron {
+  background: rgba(255, 195, 71, .095);
+
+  border-color: rgba(255, 195, 71, .24);
+}
+
+
+.pj-faculty-card.active .pj-chevron {
+  transform: rotate(180deg);
+
+  background: rgba(255, 195, 71, .12);
+
+  border-color: rgba(255, 195, 71, .28);
+}
+
+
+/* =========================================================
+   COLLAPSE / ACCORDION
+   ========================================================= */
+
+.pj-collapse {
+  display: grid;
+
+  grid-template-rows: 0fr;
+
+  opacity: 0;
+
+  transition:
+    grid-template-rows .48s cubic-bezier(.2, .8, .2, 1),
+    opacity .28s ease;
+}
+
+
+.pj-collapse > .pj-list {
+  min-height: 0;
+
+  overflow: hidden;
+}
+
+
+.pj-faculty-card.active .pj-collapse {
+  grid-template-rows: 1fr;
+
+  opacity: 1;
+}
+
+
+/* =========================================================
+   LIST
+   ========================================================= */
 
 .pj-list {
   display: grid;
 }
 
+
+/* =========================================================
+   PJ ROW
+   ========================================================= */
+
 .pj-row {
+  position: relative;
+
   min-height: 61px;
   padding: 12px 16px;
+
   display: grid;
-  grid-template-columns: minmax(120px, .72fr) minmax(0, 1.45fr);
+
+  grid-template-columns:
+    minmax(120px, .72fr)
+    minmax(0, 1.45fr);
+
   align-items: center;
+
   gap: 14px;
-  border-bottom: 1px solid rgba(255,255,255,.055);
+
+  opacity: 0;
+
+  transform: translateY(-7px);
+
+  border-bottom: 1px solid rgba(255, 255, 255, .05);
+
+  transition:
+    opacity .3s ease,
+    transform .34s ease,
+    background .25s ease,
+    padding-left .25s ease;
 }
+
 
 .pj-row:last-child {
   border-bottom: 0;
 }
 
-.pj-row:hover {
-  background: rgba(255,195,71,.045);
+
+/* Nama masuk satu-satu */
+.pj-faculty-card.active .pj-row {
+  opacity: 1;
+
+  transform: translateY(0);
 }
+
+
+.pj-faculty-card.active .pj-row:nth-child(1) {
+  transition-delay: .06s;
+}
+
+
+.pj-faculty-card.active .pj-row:nth-child(2) {
+  transition-delay: .10s;
+}
+
+
+.pj-faculty-card.active .pj-row:nth-child(3) {
+  transition-delay: .14s;
+}
+
+
+.pj-faculty-card.active .pj-row:nth-child(4) {
+  transition-delay: .18s;
+}
+
+
+/* Hover orang */
+.pj-row:hover {
+  padding-left: 20px;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(255, 195, 71, .065),
+      rgba(255, 195, 71, .018)
+    );
+}
+
+
+/* =========================================================
+   PJ NAME
+   ========================================================= */
 
 .pj-name {
   min-width: 0;
+
   display: flex;
   align-items: center;
+
   gap: 9px;
+
+  color: #fff7ed;
+
   font-size: .79rem;
   font-weight: 900;
 }
 
-.pj-name-dot {
-  width: 8px;
-  height: 8px;
-  flex: 0 0 8px;
-  border-radius: 50%;
-  background: var(--gold);
-  box-shadow: 0 0 13px rgba(255,195,71,.45);
+
+.pj-name span:last-child {
+  overflow: hidden;
+
+  text-overflow: ellipsis;
 }
 
+
+/* Dot */
+.pj-name-dot {
+  width: 7px;
+  height: 7px;
+
+  flex: 0 0 7px;
+
+  border-radius: 50%;
+
+  background: var(--gold);
+
+  box-shadow:
+    0 0 10px rgba(255, 195, 71, .42);
+
+  transition:
+    transform .25s ease,
+    box-shadow .25s ease;
+}
+
+
+.pj-row:hover .pj-name-dot {
+  transform: scale(1.25);
+
+  box-shadow:
+    0 0 15px rgba(255, 195, 71, .7);
+}
+
+
+/* =========================================================
+   SPORTS
+   ========================================================= */
+
 .pj-sports {
+  min-width: 0;
+
   color: #eadcca;
+
   font-size: .73rem;
   line-height: 1.5;
 }
 
+
+/* =========================================================
+   NOTE
+   ========================================================= */
+
 .pj-note {
   margin-top: 18px;
   padding: 14px 17px;
+
   display: flex;
   align-items: flex-start;
+
   gap: 11px;
-  border: 1px solid rgba(255,195,71,.14);
+
+  border: 1px solid rgba(255, 195, 71, .13);
   border-radius: 16px;
-  background: rgba(255,195,71,.055);
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 195, 71, .055),
+      rgba(255, 105, 0, .018)
+    );
 }
 
-.pj-note span {
+
+.pj-note > span {
   flex: 0 0 auto;
 }
 
+
 .pj-note p {
   margin: 0;
+
   color: var(--muted);
+
   font-size: .72rem;
   line-height: 1.6;
 }
 
-@media (max-width: 1000px) {
+
+/* =========================================================
+   DESKTOP MEDIUM
+   ========================================================= */
+
+@media (max-width: 1100px) {
+
   .pj-grid {
     grid-template-columns: 1fr;
   }
+
 }
 
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
 @media (max-width: 700px) {
+
   .pj-hero {
     min-height: unset;
+
     padding: 23px 20px;
+
     align-items: flex-start;
+
     flex-direction: column;
   }
+
 
   .pj-summary {
     width: 100%;
   }
+
+
+  .pj-summary-card {
+    min-width: 0;
+  }
+
+
+  .pj-grid {
+    gap: 13px;
+  }
+
 }
 
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
 @media (max-width: 520px) {
-  .pj-row {
-    grid-template-columns: minmax(105px, .8fr) minmax(0, 1.35fr);
-    gap: 10px;
-    padding-inline: 13px;
+
+  .pj-hero {
+    padding: 21px 17px;
   }
 
-  .pj-name,
-  .pj-sports {
-    font-size: .69rem;
+
+  .pj-hero h3 {
+    font-size: 1.55rem;
   }
+
+
+  .pj-summary {
+    gap: 8px;
+  }
+
+
+  .pj-summary-card {
+    padding: 13px 12px;
+
+    border-radius: 14px;
+  }
+
+
+  .pj-summary-card strong {
+    font-size: 1.45rem;
+  }
+
+
+  .pj-summary-card span {
+    font-size: .61rem;
+  }
+
+
+  .pj-faculty-card {
+    border-radius: 17px;
+  }
+
 
   .pj-faculty-head {
-    padding-inline: 13px;
+    min-height: 63px;
+
+    padding: 11px 12px;
+
+    gap: 7px;
   }
+
+
+  .pj-faculty-title {
+    gap: 9px;
+  }
+
+
+  .pj-faculty-icon {
+    width: 34px;
+    height: 34px;
+
+    flex-basis: 34px;
+  }
+
+
+  .pj-faculty-icon img {
+    width: 34px;
+    height: 34px;
+  }
+
+
+  .pj-faculty-title strong {
+    font-size: .8rem;
+  }
+
+
+  .pj-faculty-title small {
+    font-size: .57rem;
+  }
+
+
+  .pj-head-actions {
+    gap: 5px;
+  }
+
+
+  .pj-count {
+    padding: 4px 7px;
+
+    font-size: .56rem;
+  }
+
+
+  .pj-chevron {
+    width: 26px;
+    height: 26px;
+
+    flex-basis: 26px;
+
+    border-radius: 8px;
+  }
+
+
+  .pj-chevron svg {
+    width: 12px;
+    height: 12px;
+  }
+
+
+  .pj-row {
+    min-height: 58px;
+
+    padding: 11px 12px;
+
+    grid-template-columns:
+      minmax(100px, .85fr)
+      minmax(0, 1.25fr);
+
+    gap: 9px;
+  }
+
+
+  .pj-row:hover {
+    padding-left: 15px;
+  }
+
+
+  .pj-name {
+    gap: 7px;
+
+    font-size: .67rem;
+  }
+
+
+  .pj-sports {
+    font-size: .65rem;
+
+    line-height: 1.4;
+  }
+
+
+  .pj-name-dot {
+    width: 6px;
+    height: 6px;
+
+    flex-basis: 6px;
+  }
+
+
+  .pj-note {
+    padding: 12px 14px;
+
+    border-radius: 14px;
+  }
+
+
+  .pj-note p {
+    font-size: .66rem;
+  }
+
+}
+
+
+/* =========================================================
+   VERY SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 380px) {
+
+  .pj-count {
+    display: none;
+  }
+
+
+  .pj-row {
+    grid-template-columns:
+      minmax(90px, .9fr)
+      minmax(0, 1.1fr);
+  }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .pj-faculty-card,
+  .pj-faculty-head,
+  .pj-faculty-icon,
+  .pj-chevron,
+  .pj-collapse,
+  .pj-row,
+  .pj-name-dot,
+  .pj-summary-card {
+    transition: none !important;
+  }
+
 }
