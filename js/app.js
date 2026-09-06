@@ -19,6 +19,7 @@
     selectedSportCategory: "",
     selectedSport: "",
     eventDate: "",
+    timeMode: "single",
     eventTime: "",
     eventPlace: "",
     staffName: localStorage.getItem("lowbat-staff-name") || "",
@@ -89,7 +90,14 @@
     dateField: $("dateField"),
     eventDateInput: $("eventDateInput"),
     timeField: $("timeField"),
+    timeModeButtons: [...document.querySelectorAll(".time-mode")],
+    timeSingleMode: $("timeSingleMode"),
+    timeRangeMode: $("timeRangeMode"),
+    timeFinishMode: $("timeFinishMode"),
     eventTimeInput: $("eventTimeInput"),
+    eventTimeStartInput: $("eventTimeStartInput"),
+    eventTimeEndInput: $("eventTimeEndInput"),
+    eventTimeFinishInput: $("eventTimeFinishInput"),
     placeField: $("placeField"),
     eventPlaceInput: $("eventPlaceInput"),
     detailError: $("detailError"),
@@ -246,8 +254,113 @@
     return `${dayNames[date.getUTCDay()]}, ${day} ${monthNames[month - 1]} ${year}`;
   }
 
-  function formatTime(value) {
+  function formatSingleTime(value) {
     return value ? String(value).slice(0, 5).replace(":", ".") : "-";
+  }
+
+  function formatTime(value) {
+    if (!value) return "-";
+
+    const text = String(value).trim();
+
+    if (text.toLowerCase().includes("selesai")) {
+      const start = text.split(" - ")[0]?.trim();
+      return `${formatSingleTime(start)} - Selesai`;
+    }
+
+    if (text.includes(" - ")) {
+      const [start, end] = text.split(" - ");
+      return `${formatSingleTime(start)} - ${formatSingleTime(end)}`;
+    }
+
+    return formatSingleTime(text);
+  }
+
+  function getSelectedTimeValue() {
+    if (state.timeMode === "single") {
+      return dom.eventTimeInput?.value || "";
+    }
+
+    if (state.timeMode === "range") {
+      const start = dom.eventTimeStartInput?.value || "";
+      const end = dom.eventTimeEndInput?.value || "";
+      return start && end ? `${start} - ${end}` : "";
+    }
+
+    if (state.timeMode === "finish") {
+      const start = dom.eventTimeFinishInput?.value || "";
+      return start ? `${start} - Selesai` : "";
+    }
+
+    return "";
+  }
+
+  function setTimeMode(mode = "single") {
+    const validModes = ["single", "range", "finish"];
+    state.timeMode = validModes.includes(mode) ? mode : "single";
+
+    dom.timeModeButtons.forEach((button) => {
+      const isActive = button.dataset.timeMode === state.timeMode;
+      button.classList.toggle("active", isActive);
+      button.setAttribute("aria-pressed", String(isActive));
+    });
+
+    dom.timeSingleMode?.classList.toggle("active", state.timeMode === "single");
+    dom.timeRangeMode?.classList.toggle("active", state.timeMode === "range");
+    dom.timeFinishMode?.classList.toggle("active", state.timeMode === "finish");
+
+    state.eventTime = getSelectedTimeValue();
+  }
+
+  function validateTimeInput() {
+    if (state.timeMode === "single") {
+      const value = dom.eventTimeInput?.value || "";
+      return value
+        ? { valid: true, value }
+        : { valid: false, message: "Isi waktu kegiatan terlebih dahulu." };
+    }
+
+    if (state.timeMode === "range") {
+      const start = dom.eventTimeStartInput?.value || "";
+      const end = dom.eventTimeEndInput?.value || "";
+
+      if (!start || !end) {
+        return {
+          valid: false,
+          message: "Isi waktu mulai dan waktu selesai terlebih dahulu."
+        };
+      }
+
+      if (end <= start) {
+        return {
+          valid: false,
+          message: "Waktu selesai harus setelah waktu mulai."
+        };
+      }
+
+      return { valid: true, value: `${start} - ${end}` };
+    }
+
+    if (state.timeMode === "finish") {
+      const start = dom.eventTimeFinishInput?.value || "";
+      return start
+        ? { valid: true, value: `${start} - Selesai` }
+        : { valid: false, message: "Isi waktu mulai terlebih dahulu." };
+    }
+
+    return { valid: false, message: "Pilih mode waktu terlebih dahulu." };
+  }
+
+  function resetTimeFields() {
+    state.timeMode = "single";
+    state.eventTime = "";
+
+    if (dom.eventTimeInput) dom.eventTimeInput.value = "";
+    if (dom.eventTimeStartInput) dom.eventTimeStartInput.value = "";
+    if (dom.eventTimeEndInput) dom.eventTimeEndInput.value = "";
+    if (dom.eventTimeFinishInput) dom.eventTimeFinishInput.value = "";
+
+    setTimeMode("single");
   }
 
   function formatCreatedAt(value) {
@@ -448,6 +561,7 @@
       selectedSportCategory: "",
       selectedSport: "",
       eventDate: "",
+      timeMode: "single",
       eventTime: "",
       eventPlace: ""
     });
@@ -463,7 +577,7 @@
     dom.sportCategorySelect.value = "";
     dom.sportVariantSelect.innerHTML = '<option value="">Pilih kategori</option>';
     dom.eventDateInput.value = "";
-    dom.eventTimeInput.value = "";
+    resetTimeFields();
     dom.eventPlaceInput.value = "";
     dom.crosscheckInput.checked = false;
 
@@ -570,8 +684,18 @@
           dom.sportVariantSelect.value
         ) || state.selectedSport;
       state.eventDate = dom.eventDateInput.value;
-      state.eventTime = dom.eventTimeInput.value;
       state.eventPlace = dom.eventPlaceInput.value.trim();
+
+      if (template.requiresTime) {
+        const timeValidation = validateTimeInput();
+        if (!timeValidation.valid) {
+          dom.detailError.textContent = timeValidation.message;
+          return false;
+        }
+        state.eventTime = timeValidation.value;
+      } else {
+        state.eventTime = "";
+      }
 
       const missing = [];
       if (template.requiresSport && !state.selectedSport) missing.push("cabang olahraga");
@@ -1219,8 +1343,30 @@
       dom.detailError.textContent = "";
     });
 
-    dom.eventTimeInput.addEventListener("input", () => {
-      state.eventTime = dom.eventTimeInput.value;
+    dom.timeModeButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        setTimeMode(button.dataset.timeMode);
+        dom.detailError.textContent = "";
+      });
+    });
+
+    dom.eventTimeInput?.addEventListener("input", () => {
+      if (state.timeMode === "single") state.eventTime = getSelectedTimeValue();
+      dom.detailError.textContent = "";
+    });
+
+    dom.eventTimeStartInput?.addEventListener("input", () => {
+      if (state.timeMode === "range") state.eventTime = getSelectedTimeValue();
+      dom.detailError.textContent = "";
+    });
+
+    dom.eventTimeEndInput?.addEventListener("input", () => {
+      if (state.timeMode === "range") state.eventTime = getSelectedTimeValue();
+      dom.detailError.textContent = "";
+    });
+
+    dom.eventTimeFinishInput?.addEventListener("input", () => {
+      if (state.timeMode === "finish") state.eventTime = getSelectedTimeValue();
       dom.detailError.textContent = "";
     });
 
@@ -1326,6 +1472,7 @@
   async function init() {
     renderTemplateCards();
     populateFields();
+    setTimeMode("single");
     bindEvents();
     updateClock();
     renderDashboard();
