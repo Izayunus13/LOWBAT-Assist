@@ -40,7 +40,7 @@ window.LOWBAT_DATA = {
   sportsMap: {
     "Futsal": ["Futsal Putra", "Futsal Putri"],
     "Basket": ["Basket Putra", "Basket Putri"],
-    "Sepak Bola": ["Sepak Bola Putra"],
+    "Sepak Bola": ["Sepak Bola"],
     "Atletik": ["Atletik"],
     "Voli": ["Voli Putra"],
     "Badminton": ["Tunggal Putra", "Tunggal Putri", "Ganda Putra", "Ganda Putri", "Ganda Campuran"],
