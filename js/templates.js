@@ -8,14 +8,33 @@ Template aktif:
 2. Technical Meeting Badminton
 
 Data yang disesuaikan melalui generator:
-{FACULTY}  = Fakultas / Sekolah Vokasi / Wilayah dan Daerah
-{DAY_DATE} = Hari dan tanggal pelaksanaan
 
-Cabor, jam, dan tempat sudah ditetapkan langsung
-di masing-masing template.
+{MIKAT_LABEL}
+= Pilihan Mikat / Mikatan / Soraya / Seniora + Fakultas
+Contoh:
+Seniora Fakultas Teknik
+
+{FACULTY}
+= Nama Fakultas / Sekolah Vokasi / Wilayah dan Daerah
+Contoh:
+Fakultas Teknik
+
+{DAY_DATE}
+= Hari dan tanggal pelaksanaan
+Contoh:
+Sabtu, 12 September 2026
+
+Cabang olahraga, jam, dan tempat sudah ditetapkan
+langsung di masing-masing template.
+===========================================================
 */
 
 window.LOWBAT_DATA = {
+
+  /* =========================================================
+     FAKULTAS / DELEGASI
+     ========================================================= */
+
   faculties: [
     "Fakultas Teknik",
     "Fakultas Ekonomika dan Bisnis",
@@ -32,6 +51,11 @@ window.LOWBAT_DATA = {
     "Wilayah dan Daerah"
   ],
 
+
+  /* =========================================================
+     PILIHAN MIKAT
+     ========================================================= */
+
   mikatOptions: [
     "Seniora",
     "Soraya",
@@ -39,12 +63,36 @@ window.LOWBAT_DATA = {
     "Mikat"
   ],
 
+
+  /* =========================================================
+     DATA CABANG OLAHRAGA
+     Tetap dipertahankan agar struktur website tidak terganggu.
+     ========================================================= */
+
   sportsMap: {
-    "Futsal": ["Futsal Putra", "Futsal Putri"],
-    "Basket": ["Basket Putra", "Basket Putri"],
-    "Sepak Bola": ["Sepak Bola"],
-    "Atletik": ["Atletik"],
-    "Voli": ["Voli Putra"],
+
+    "Futsal": [
+      "Futsal Putra",
+      "Futsal Putri"
+    ],
+
+    "Basket": [
+      "Basket Putra",
+      "Basket Putri"
+    ],
+
+    "Sepak Bola": [
+      "Sepak Bola"
+    ],
+
+    "Atletik": [
+      "Atletik"
+    ],
+
+    "Voli": [
+      "Voli Putra"
+    ],
+
     "Badminton": [
       "Tunggal Putra",
       "Tunggal Putri",
@@ -52,21 +100,44 @@ window.LOWBAT_DATA = {
       "Ganda Putri",
       "Ganda Campuran"
     ],
-    "Karate": ["Karate Putra", "Karate Putri"],
-    "Silat": ["Silat Putra", "Silat Putri"],
+
+    "Karate": [
+      "Karate Putra",
+      "Karate Putri"
+    ],
+
+    "Silat": [
+      "Silat Putra",
+      "Silat Putri"
+    ],
+
     "Taekwondo": [
       "Kyorugi Putra",
       "Kyorugi Putri",
       "Poomsae Putra",
       "Poomsae Putri"
     ]
+
   },
 
+
+  /* =========================================================
+     TEMPLATE JARKOMAN
+     ========================================================= */
+
   templates: [
+
+    /* =======================================================
+       TECHNICAL MEETING BASKET
+       ======================================================= */
+
     {
       id: "technical-meeting-basket",
+
       title: "Technical Meeting Basket",
+
       icon: "🏀",
+
       description:
         "Informasi Technical Meeting Cabang Olahraga Basket OLIMDIPO 2026.",
 
@@ -77,7 +148,7 @@ window.LOWBAT_DATA = {
 
       content: `📢 *[INFORMASI TECHNICAL MEETING (TM) CABANG OLAHRAGA BASKET OLIMDIPO 2026]* 🏀
 
-Halo Rekan-Rekan Mikat / Mikatan / Soraya / Seniora dan Official/Manajer Basket Kontingen {FACULTY} Universitas Diponegoro! 👋✨
+Halo Rekan-Rekan {MIKAT_LABEL} dan Official/Manajer Basket Kontingen {FACULTY} Universitas Diponegoro! 👋✨
 
 Sehubungan dengan digelarnya OLIMDIPO 2026, berikut kami sampaikan informasi mengenai pelaksanaan *Technical Meeting (TM) Cabang Olahraga Basket:*
 
@@ -106,10 +177,18 @@ Terima kasih atas perhatian dan kerja samanya. Mari bersama-sama menjaga koordin
 #BEMUNDIP2026`
     },
 
+
+    /* =======================================================
+       TECHNICAL MEETING BADMINTON
+       ======================================================= */
+
     {
       id: "technical-meeting-badminton",
+
       title: "Technical Meeting Badminton",
+
       icon: "🏸",
+
       description:
         "Informasi Technical Meeting Cabang Olahraga Badminton OLIMDIPO 2026.",
 
@@ -120,7 +199,7 @@ Terima kasih atas perhatian dan kerja samanya. Mari bersama-sama menjaga koordin
 
       content: `📢 *[INFORMASI TECHNICAL MEETING (TM) CABANG OLAHRAGA BADMINTON OLIMDIPO 2026]* 🏸
 
-Halo Rekan-Rekan Mikat / Mikatan / Soraya / Seniora dan Official/Manajer Badminton Kontingen {FACULTY} Universitas Diponegoro! 👋✨
+Halo Rekan-Rekan {MIKAT_LABEL} dan Official/Manajer Badminton Kontingen {FACULTY} Universitas Diponegoro! 👋✨
 
 Sehubungan dengan digelarnya OLIMDIPO 2026, berikut kami sampaikan informasi mengenai pelaksanaan *Technical Meeting (TM) Cabang Olahraga Badminton:*
 
@@ -149,5 +228,7 @@ Terima kasih atas perhatian dan kerja samanya. Mari bersama-sama menjaga koordin
 #BidangSenidanOlahraga2026
 #BEMUNDIP2026`
     }
+
   ]
+
 };
