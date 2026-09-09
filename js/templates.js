@@ -163,13 +163,9 @@ Berikut kami sampaikan kembali informasi terkait pelaksanaan Technical Meeting B
 • 19.15 – 21.00 WIB — Pelaksanaan Technical Meeting
 
 ⚠️ *PENTING!*
-
 1. Setiap kontingen *wajib mengirimkan 1 perwakilan official (Mikat/Mikatan/Soraya/Seniora) dan 1 perwakilan atlet* untuk mengikuti Technical Meeting.
-
 2. Peserta diharapkan sudah hadir sejak *Open Gate pukul 18.00 WIB* dan melakukan registrasi sesuai waktu yang telah ditentukan.
-
 3. *Technical Meeting akan dimulai pukul 19.15 WIB*, sehingga seluruh peserta diharapkan sudah menyelesaikan proses registrasi sebelum acara dimulai.
-
 4. Technical Meeting akan membahas regulasi pertandingan, drawing, serta ketentuan teknis lainnya terkait pelaksanaan Cabang Olahraga Basket OLIMDIPO 2026.
 
 Mohon bantuan Rekan-Rekan {MIKAT_LABEL} untuk kembali meneruskan informasi ini kepada official/manajer dan tim Basket dari kontingen {FACULTY}, serta memastikan perwakilan yang ditunjuk dapat hadir dan mengikuti rangkaian Technical Meeting dari awal hingga selesai.
@@ -221,15 +217,10 @@ Berikut kami sampaikan kembali informasi terkait pelaksanaan Technical Meeting B
 • 15.30 – 18.00 WIB — Pelaksanaan Technical Meeting
 
 ⚠️ *PENTING!*
-
 1. Setiap kontingen *wajib mengirimkan 1 perwakilan official (Mikat/Mikatan/Soraya/Seniora) dan 1 perwakilan atlet* untuk mengikuti Technical Meeting.
-
 2. Peserta diharapkan sudah hadir sejak *Open Gate pukul 15.00 WIB* dan segera melakukan registrasi sesuai waktu yang telah ditentukan.
-
 3. *Technical Meeting akan dimulai pukul 15.30 WIB*, sehingga seluruh peserta diharapkan sudah menyelesaikan proses registrasi sebelum acara dimulai.
-
 4. Technical Meeting akan membahas regulasi pertandingan, drawing, serta ketentuan teknis lainnya terkait pelaksanaan Cabang Olahraga Badminton OLIMDIPO 2026.
-
 5. Setiap perwakilan diharapkan mengikuti rangkaian Technical Meeting dari awal hingga selesai agar tidak ada informasi teknis pertandingan yang terlewat.
 
 Mohon bantuan Rekan-Rekan {MIKAT_LABEL} untuk kembali meneruskan informasi ini kepada official/manajer dan tim Badminton dari kontingen {FACULTY}, serta memastikan perwakilan yang ditunjuk dapat hadir dan mengikuti rangkaian Technical Meeting dari awal hingga selesai.
