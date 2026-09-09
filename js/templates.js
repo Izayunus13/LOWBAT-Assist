@@ -3,19 +3,16 @@
 DATA TEMPLATE JARKOMAN — LOWBAT ASSIST
 ===========================================================
 
-Cara menambah template:
-1. Salin satu objek di bagian templates.
-2. Ganti id dengan nama unik tanpa spasi.
-3. Isi title, icon, description, kebutuhan field, dan content.
-4. Gunakan placeholder berikut jika diperlukan:
+Template aktif:
+1. Technical Meeting Basket
+2. Technical Meeting Badminton
 
-{GREETING}     = Pagi / Siang / Sore / Malam sesuai WIB
-{MIKAT_LABEL}  = Contoh: Seniora Fakultas Teknik
-{FACULTY}      = Contoh: Fakultas Teknik
-{SPORT}        = Contoh: Futsal Putra
-{DAY_DATE}     = Contoh: Senin, 10 Agustus 2026
-{TIME}         = Contoh: 15.00
-{PLACE}        = Contoh: GOR Undip
+Data yang disesuaikan melalui generator:
+{FACULTY}  = Fakultas / Sekolah Vokasi / Wilayah dan Daerah
+{DAY_DATE} = Hari dan tanggal pelaksanaan
+
+Cabor, jam, dan tempat sudah ditetapkan langsung
+di masing-masing template.
 */
 
 window.LOWBAT_DATA = {
@@ -32,10 +29,15 @@ window.LOWBAT_DATA = {
     "Fakultas Kedokteran",
     "Fakultas Kesehatan Masyarakat",
     "Sekolah Vokasi",
-    "Wilayah & Daerah"
+    "Wilayah dan Daerah"
   ],
 
-  mikatOptions: ["Seniora", "Soraya", "Mikatan", "Mikat"],
+  mikatOptions: [
+    "Seniora",
+    "Soraya",
+    "Mikatan",
+    "Mikat"
+  ],
 
   sportsMap: {
     "Futsal": ["Futsal Putra", "Futsal Putri"],
@@ -43,37 +45,60 @@ window.LOWBAT_DATA = {
     "Sepak Bola": ["Sepak Bola"],
     "Atletik": ["Atletik"],
     "Voli": ["Voli Putra"],
-    "Badminton": ["Tunggal Putra", "Tunggal Putri", "Ganda Putra", "Ganda Putri", "Ganda Campuran"],
+    "Badminton": [
+      "Tunggal Putra",
+      "Tunggal Putri",
+      "Ganda Putra",
+      "Ganda Putri",
+      "Ganda Campuran"
+    ],
     "Karate": ["Karate Putra", "Karate Putri"],
     "Silat": ["Silat Putra", "Silat Putri"],
-    "Taekwondo": ["Kyorugi Putra", "Kyorugi Putri", "Poomsae Putra", "Poomsae Putri"]
+    "Taekwondo": [
+      "Kyorugi Putra",
+      "Kyorugi Putri",
+      "Poomsae Putra",
+      "Poomsae Putri"
+    ]
   },
 
   templates: [
     {
-      id: "request-pj",
-      title: "Meminta Nomor PJ Cabor",
-      icon: "📱",
-      description: "Membuka jalur koordinasi dan meminta narahubung internal tiap cabor.",
+      id: "technical-meeting-basket",
+      title: "Technical Meeting Basket",
+      icon: "🏀",
+      description:
+        "Informasi Technical Meeting Cabang Olahraga Basket OLIMDIPO 2026.",
+
       requiresSport: false,
-      requiresDate: false,
+      requiresDate: true,
       requiresTime: false,
       requiresPlace: false,
-      content: `*Selamat {GREETING} rekan-rekan delegasi {MIKAT_LABEL} Universitas Diponegoro yang sudah bergabung!* 🤝✨
 
-Terima kasih atas respons cepatnya. Grup ini resmi akan kita gunakan sebagai pintu utama penyebaran informasi teknis OLIMDIPO 2026.
+      content: `📢 *[INFORMASI TECHNICAL MEETING (TM) CABANG OLAHRAGA BASKET OLIMDIPO 2026]* 🏀
 
-Guna mempermudah alur komunikasi kepada para atlet fakultas yang akan bertanding, kami memohon bantuan rekan-rekan PJ delegasi untuk:
+Halo Rekan-Rekan Mikat / Mikatan / Soraya / Seniora dan Official/Manajer Basket Kontingen {FACULTY} Universitas Diponegoro! 👋✨
 
-📱 1. Membuat/Menyiapkan Narahubung Internal
-Menentukan perwakilan dari Mikat/Mikatan/Soraya/Seniora di fakultas masing-masing yang akan menjadi penanggung jawab (PJ) setiap cabang olahraga.
+Sehubungan dengan digelarnya OLIMDIPO 2026, berikut kami sampaikan informasi mengenai pelaksanaan *Technical Meeting (TM) Cabang Olahraga Basket:*
 
-🔄 2. Penyebaran Informasi Satu Pintu
-Memastikan nomor kontak atau ID LINE para PJ Fakultas tersebut disebarkan kepada seluruh atlet, agar para atlet tidak kebingungan dan dapat langsung menghubungi pihak fakultas apabila terdapat kendala teknis, logistik, maupun administrasi.
+🗓️ *Hari, Tanggal:* {DAY_DATE}
+📍 *Tempat:* Student Center Universitas Diponegoro
 
-Mari kita pastikan tidak ada informasi yang terputus demi kenyamanan dan kesiapan para atlet di lapangan nanti. 🏅
+⏰ *RINCIAN WAKTU PELAKSANAAN*
+• 18.00 WIB — Open Gate
+• 18.30 – 19.15 WIB — Registrasi Peserta
+• 19.15 – 21.00 WIB — Pelaksanaan Technical Meeting
 
-Atas perhatian dan kerja sama maraton dari rekan-rekan semua, kami ucapkan terima kasih banyak! 🙏✨
+⚠️ *PENTING!*
+
+1. Setiap kontingen *wajib mengirimkan 1 perwakilan official (Mikat/Mikatan/Soraya/Seniora) dan 1 perwakilan atlet* untuk mengikuti Technical Meeting.
+2. Peserta diharapkan sudah hadir sejak *Open Gate pukul 18.00 WIB* dan melakukan registrasi sesuai waktu yang telah ditentukan.
+3. *Technical Meeting akan dimulai pukul 19.15 WIB*, sehingga seluruh peserta diharapkan sudah menyelesaikan registrasi sebelum acara dimulai.
+4. Technical Meeting akan membahas regulasi pertandingan, drawing, serta ketentuan teknis lainnya terkait pelaksanaan Cabor Basket OLIMDIPO 2026.
+
+Mohon informasi ini dapat diteruskan kepada official/manajer dan tim Basket dari kontingen masing-masing, serta memastikan perwakilan yang ditunjuk dapat hadir dan mengikuti rangkaian Technical Meeting dari awal hingga selesai.
+
+Terima kasih atas perhatian dan kerja samanya. Mari bersama-sama menjaga koordinasi dan sportivitas selama rangkaian OLIMDIPO 2026! 🏀🔥
 
 #OLIMDIPO2026
 #EarnYourMomentOwnTheStage
@@ -82,93 +107,42 @@ Atas perhatian dan kerja sama maraton dari rekan-rekan semua, kami ucapkan terim
     },
 
     {
-      id: "opening-ceremony",
-      title: "Opening Ceremony",
-      icon: "🏆",
-      description: "Undangan dan koordinasi kehadiran kontingen dalam upacara pembukaan.",
+      id: "technical-meeting-badminton",
+      title: "Technical Meeting Badminton",
+      icon: "🏸",
+      description:
+        "Informasi Technical Meeting Cabang Olahraga Badminton OLIMDIPO 2026.",
+
       requiresSport: false,
       requiresDate: true,
-      requiresTime: true,
-      requiresPlace: true,
-      content: `*[OPENING CEREMONY OLIMDIPO 2026]* 🔥🏆
+      requiresTime: false,
+      requiresPlace: false,
 
-Halo Rekan-Rekan {MIKAT_LABEL} Universitas Diponegoro! 👋✨
+      content: `📢 *[INFORMASI TECHNICAL MEETING (TM) CABANG OLAHRAGA BADMINTON OLIMDIPO 2026]* 🏸
 
-Gong perjuangan akan segera ditabuh! 🎉 Mari kita satukan semangat dan kawal kontingen kebanggaan kita dalam Opening Ceremony OLIMDIPO 2026 yang akan dilaksanakan pada:
+Halo Rekan-Rekan Mikat / Mikatan / Soraya / Seniora dan Official/Manajer Badminton Kontingen {FACULTY} Universitas Diponegoro! 👋✨
 
-📅 Hari/Tanggal: {DAY_DATE}
-⏰ Waktu: {TIME} WIB
-📍 Tempat: {PLACE}
+Sehubungan dengan digelarnya OLIMDIPO 2026, berikut kami sampaikan informasi mengenai pelaksanaan *Technical Meeting (TM) Cabang Olahraga Badminton:*
 
-Mohon bantuannya untuk mengoordinasikan seluruh atlet, official, dan supporter dari {FACULTY} agar dapat hadir tepat waktu dan memeriahkan upacara pembukaan ini. Let's paint the venue with our pride! 🎨🔥
+🗓️ *Hari, Tanggal:* {DAY_DATE}
+📍 *Tempat:* Student Center Lt. 2 Universitas Diponegoro
 
-Terima kasih atas dedikasi dan kerja samanya! Sampai jumpa di venue! 🚀
+⏰ *RINCIAN WAKTU PELAKSANAAN*
+• 15.00 WIB — Open Gate
+• 15.00 – 15.30 WIB — Registrasi Peserta
+• 15.30 – 18.00 WIB — Pelaksanaan Technical Meeting
 
-#OLIMDIPO2026
-#EarnYourMomentOwnTheStage
-#BidangSenidanOlahraga2026
-#BEMUNDIP2026`
-    },
+⚠️ *PENTING!*
 
-    {
-      id: "technical-meeting",
-      title: "Technical Meeting",
-      icon: "📢",
-      description: "Undangan TM cabor lengkap dengan jadwal, tempat, dan agenda.",
-      requiresSport: true,
-      requiresDate: true,
-      requiresTime: true,
-      requiresPlace: true,
-      content: `*[TECHNICAL MEETING OLIMDIPO {SPORT} 2026]* 📢
+1. Setiap kontingen *wajib mengirimkan 1 perwakilan official (Mikat/Mikatan/Soraya/Seniora) dan 1 perwakilan atlet* untuk mengikuti Technical Meeting.
+2. Peserta diharapkan sudah hadir sejak *Open Gate pukul 15.00 WIB* dan segera melakukan registrasi sesuai waktu yang telah ditentukan.
+3. *Technical Meeting akan dimulai pukul 15.30 WIB*, sehingga seluruh peserta diharapkan sudah menyelesaikan registrasi sebelum acara dimulai.
+4. Technical Meeting akan membahas regulasi pertandingan, drawing, serta ketentuan teknis lainnya terkait pelaksanaan Cabor Badminton OLIMDIPO 2026.
+5. Mohon setiap perwakilan mengikuti rangkaian Technical Meeting dari awal hingga selesai agar tidak ada informasi teknis pertandingan yang terlewat.
 
-Selamat {GREETING} Rekan-Rekan {MIKAT_LABEL} Universitas Diponegoro! 🙏
+Mohon informasi ini dapat diteruskan kepada official/manajer dan tim Badminton dari kontingen masing-masing, serta memastikan perwakilan yang ditunjuk dapat hadir dan mengikuti rangkaian Technical Meeting dari awal hingga selesai.
 
-Demi kelancaran dan transparansi kompetisi, kami mengundang perwakilan official/kapten tim dari {FACULTY} untuk menghadiri Technical Meeting (TM) OLIMDIPO 2026 pada:
-
-📅 Hari/Tanggal: {DAY_DATE}
-⏰ Waktu: {TIME} WIB
-📍 Tempat: {PLACE}
-
-📌 Agenda: Pembahasan regulasi umum, peraturan cabang olahraga, dan drawing bagan pertandingan.
-
-Mengingat pentingnya agenda ini untuk menyamakan persepsi dan aturan main, kehadiran perwakilan dari {FACULTY} bersifat WAJIB. ⚠️
-
-Pastikan tidak ada informasi yang terlewat, ya! Jika terdapat kendala kehadiran, harap segera menghubungi narahubung terkait. 📱
-
-Terima kasih atas perhatian dan kerja samanya! Bersama kita jaga sportivitas! 🤝🏅
-
-#OLIMDIPO2026
-#EarnYourMomentOwnTheStage
-#BidangSenidanOlahraga2026
-#BEMUNDIP2026`
-    },
-
-    {
-      id: "reminder-h2",
-      title: "Reminder H-2 Pertandingan",
-      icon: "⏳",
-      description: "Pengingat pertandingan terdekat untuk cabang olahraga tertentu.",
-      requiresSport: true,
-      requiresDate: true,
-      requiresTime: true,
-      requiresPlace: true,
-      content: `*[H-2 PERTANDINGAN {SPORT} OLIMDIPO 2026]* ⏳🔥
-
-Semangat {GREETING} Rekan-Rekan {MIKAT_LABEL} Universitas Diponegoro! 💪🔥
-
-Tidak terasa 2 HARI LAGI kontingen terbaik dari {FACULTY} akan mulai berlaga di medan juang OLIMDIPO 2026! 🏟️✨
-
-Berikut adalah pengingat penting terkait jadwal pertandingan terdekat untuk fakultas kita:
-
-📋 Detail Jadwal H-2:
-• Cabang Olahraga: {SPORT}
-• Hari/Tanggal: {DAY_DATE}
-• Jam Tanding: {TIME} WIB
-• Lapangan/Venue: {PLACE}
-
-Mari kita persiapkan segalanya dengan matang demi hasil yang maksimal! Kerahkan seluruh dukungan terbaik kalian! 🗣️🥁
-
-Terima kasih, dan selamat mempersiapkan diri! 🥇
+Terima kasih atas perhatian dan kerja samanya. Mari bersama-sama menjaga koordinasi dan sportivitas selama rangkaian OLIMDIPO 2026! 🏸🔥
 
 #OLIMDIPO2026
 #EarnYourMomentOwnTheStage
