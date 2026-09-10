@@ -214,7 +214,7 @@ Berikut kami sampaikan kembali informasi terkait pelaksanaan Technical Meeting B
 ⏰ *RINCIAN WAKTU PELAKSANAAN*
 • 15.00 WIB — Open Gate
 • 15.00 – 15.30 WIB — Registrasi Peserta
-• 15.30 – 18.00 WIB — Pelaksanaan Technical Meeting
+• 15.30 – 17.25 WIB — Pelaksanaan Technical Meeting
 
 ⚠️ *PENTING!*
 1. Setiap kontingen *wajib mengirimkan 1 perwakilan official (Mikat/Mikatan/Soraya/Seniora) dan 1 perwakilan atlet* untuk mengikuti Technical Meeting.
