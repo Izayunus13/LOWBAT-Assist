@@ -8,6 +8,8 @@ Template aktif:
 2. Reminder H-2 TM Badminton
 3. Today is The Day TM Basket
 4. Today is The Day TM Badminton
+5. Today is The Day TM Basket - Atlet
+6. Today is The Day TM Badminton - Atlet
 
 Placeholder yang digunakan:
 
@@ -25,6 +27,11 @@ Fakultas Teknik
 = Hari dan tanggal pelaksanaan Technical Meeting
 Contoh:
 Sabtu, 12 September 2026
+
+Catatan:
+Template khusus Atlet tidak menggunakan {MIKAT_LABEL}
+dan {FACULTY} karena ditujukan langsung ke
+Grup Koordinasi Atlet OLIMDIPO 2026.
 
 Cabang olahraga, jam, dan tempat sudah ditetapkan
 langsung di masing-masing template.
@@ -68,7 +75,6 @@ window.LOWBAT_DATA = {
 
   /* =========================================================
      DATA CABANG OLAHRAGA
-     Tetap dipertahankan agar struktur website tetap aman.
      ========================================================= */
 
   sportsMap: {
@@ -333,6 +339,111 @@ Hari yang ditunggu telah tiba! *Technical Meeting (TM) Cabang Olahraga Badminton
 Mohon bantuan Rekan-Rekan {MIKAT_LABEL} untuk meneruskan informasi ini kepada official/manajer dan tim Badminton dari kontingen {FACULTY}, serta memastikan perwakilan yang ditunjuk dapat hadir dan mengikuti rangkaian Technical Meeting dari awal hingga selesai.
 
 Terima kasih atas perhatian dan kerja samanya. Sampai bertemu di *Technical Meeting Badminton OLIMDIPO 2026*! 🏸🔥
+
+#OLIMDIPO2026
+#EarnYourMomentOwnTheStage
+#BidangSenidanOlahraga2026
+#BEMUNDIP2026`
+    },
+
+
+    /* =======================================================
+       TODAY IS THE DAY — TM BASKET KHUSUS ATLET
+       ======================================================= */
+
+    {
+      id: "today-tm-basket-atlet",
+
+      title: "Today is The Day TM Basket - Atlet",
+
+      icon: "🏀",
+
+      description:
+        "Jarkoman hari-H Technical Meeting Basket khusus Grup Koordinasi Atlet OLIMDIPO 2026.",
+
+      requiresSport: false,
+      requiresDate: true,
+      requiresTime: false,
+      requiresPlace: false,
+
+      content: `🚨 *[TODAY IS THE DAY! TECHNICAL MEETING (TM) CABANG OLAHRAGA BASKET OLIMDIPO 2026]* 🏀🔥
+
+Halo Rekan-Rekan Delegasi Atlet OLIMDIPO 2026! 👋✨
+
+Hari ini adalah *Hari H pelaksanaan Technical Meeting (TM) Cabang Olahraga Basket OLIMDIPO 2026!*
+
+Berikut rincian informasi pelaksanaan Technical Meeting hari ini:
+
+🗓️ *Hari, Tanggal:* {DAY_DATE}
+📍 *Tempat:* Student Center Universitas Diponegoro
+
+⏰ *RINCIAN WAKTU PELAKSANAAN*
+• 18.00 WIB — Open Gate
+• 18.30 – 19.15 WIB — Registrasi Peserta
+• 19.15 – 21.00 WIB — Pelaksanaan Technical Meeting
+
+⚠️ *PENGINGAT PENTING!*
+1. Setiap kontingen *wajib mengirimkan 1 perwakilan atlet* untuk mengikuti Technical Meeting.
+2. Peserta diharapkan hadir tepat waktu sejak *Open Gate pukul 18.00 WIB* dan segera melakukan registrasi.
+3. *Technical Meeting akan dimulai pukul 19.15 WIB*, sehingga pastikan proses registrasi sudah selesai sebelum acara dimulai.
+4. Agenda Technical Meeting meliputi pembahasan regulasi pertandingan, drawing, serta ketentuan teknis penting lainnya terkait pelaksanaan Cabor Basket OLIMDIPO 2026.
+
+Mohon Rekan-Rekan Delegasi Atlet dapat memastikan perwakilan dari kontingen masing-masing hadir dan mengikuti rangkaian Technical Meeting dari awal hingga selesai agar tidak ada informasi teknis yang terlewat.
+
+Sampai bertemu nanti malam di Student Center! Tetap semangat dan persiapkan tim terbaik kalian! 🏀🏆🔥
+
+#OLIMDIPO2026
+#EarnYourMomentOwnTheStage
+#BidangSenidanOlahraga2026
+#BEMUNDIP2026`
+    },
+
+
+    /* =======================================================
+       TODAY IS THE DAY — TM BADMINTON KHUSUS ATLET
+       ======================================================= */
+
+    {
+      id: "today-tm-badminton-atlet",
+
+      title: "Today is The Day TM Badminton - Atlet",
+
+      icon: "🏸",
+
+      description:
+        "Jarkoman hari-H Technical Meeting Badminton khusus Grup Koordinasi Atlet OLIMDIPO 2026.",
+
+      requiresSport: false,
+      requiresDate: true,
+      requiresTime: false,
+      requiresPlace: false,
+
+      content: `🚨 *[TODAY IS THE DAY! TECHNICAL MEETING (TM) CABANG OLAHRAGA BADMINTON OLIMDIPO 2026]* 🏸🔥
+
+Halo Rekan-Rekan Delegasi Atlet OLIMDIPO 2026! 👋✨
+
+Hari ini adalah *Hari H pelaksanaan Technical Meeting (TM) Cabang Olahraga Badminton OLIMDIPO 2026!*
+
+Berikut rincian informasi pelaksanaan Technical Meeting hari ini:
+
+🗓️ *Hari, Tanggal:* {DAY_DATE}
+📍 *Tempat:* Student Center Lt. 2 Universitas Diponegoro
+
+⏰ *RINCIAN WAKTU PELAKSANAAN*
+• 15.00 WIB — Open Gate
+• 15.00 – 15.30 WIB — Registrasi Peserta
+• 15.30 – 17.25 WIB — Pelaksanaan Technical Meeting
+
+⚠️ *PENGINGAT PENTING!*
+1. Setiap kontingen *wajib mengirimkan 1 perwakilan atlet* untuk mengikuti Technical Meeting.
+2. Peserta diharapkan hadir tepat waktu sejak *Open Gate pukul 15.00 WIB* dan segera melakukan registrasi.
+3. *Technical Meeting akan dimulai pukul 15.30 WIB*, sehingga pastikan proses registrasi sudah selesai sebelum acara dimulai.
+4. Agenda Technical Meeting meliputi pembahasan regulasi pertandingan, drawing, serta ketentuan teknis penting lainnya terkait pelaksanaan Cabor Badminton OLIMDIPO 2026.
+5. Setiap perwakilan *wajib mengikuti seluruh rangkaian Technical Meeting hingga selesai* agar tidak ada informasi teknis yang terlewat.
+
+Mohon Rekan-Rekan Delegasi Atlet dapat memastikan perwakilan dari kontingen masing-masing hadir dan mengikuti rangkaian Technical Meeting dari awal hingga selesai.
+
+Sampai bertemu sore nanti di Student Center Lt. 2! Tetap semangat dan persiapkan tim terbaik kalian! 🏸🏆🔥
 
 #OLIMDIPO2026
 #EarnYourMomentOwnTheStage
