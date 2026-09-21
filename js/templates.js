@@ -186,7 +186,7 @@ window.LOWBAT_DATA = {
          ISI JARKOMAN
          ===================================================== */
 
-      content: `📢 *[H-1 PERTANDINGAN BASKET OLIMDIPO 2026]* 🏀🔥
+      content: `📢 *[H-1 PERTANDINGAN CABOR BASKET OLIMDIPO 2026]* 🏀🔥
 
 Halo Rekan-Rekan {MIKAT_PREFIX}Mikat Official Basket Kontingen {FACULTY} Universitas Diponegoro! 👋✨
 
