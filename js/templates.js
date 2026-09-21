@@ -28,52 +28,74 @@ CATATAN:
    di sebelah kiri pada bagian pertandingan.
 
 Contoh:
+
 Fakultas Teknik dijarkom
 Lawan FISIP
 Status AWAY
 
 Hasil:
+
 FT vs FISIP
 Status: AWAY
 
 HOME / AWAY TIDAK membalik posisi tim.
 
-2. Sapaan menggunakan format:
+
+2. Format sapaan:
 
 Seniora:
 Rekan-Rekan Seniora dan Mikat Official Basket Kontingen ...
 
-Mikatan:
-Rekan-Rekan Mikatan dan Mikat Official Basket Kontingen ...
-
 Soraya:
 Rekan-Rekan Soraya dan Mikat Official Basket Kontingen ...
 
+Mikatan:
+Rekan-Rekan Mikatan dan Mikat Official Basket Kontingen ...
+
 Mikat:
 Rekan-Rekan Mikat Official Basket Kontingen ...
+
+Wilayah dan Daerah:
+Rekan-Rekan Mikat Official Basket Kontingen Wilayah dan Daerah ...
+
 ===========================================================
 */
 
 window.LOWBAT_DATA = {
+
 
   /* =========================================================
      FAKULTAS / DELEGASI
      ========================================================= */
 
   faculties: [
+
     "Fakultas Teknik",
+
     "Fakultas Ekonomika dan Bisnis",
+
     "Fakultas Perikanan dan Ilmu Kelautan",
+
     "Fakultas Sains dan Matematika",
+
     "Fakultas Ilmu Budaya",
+
     "Fakultas Hukum",
+
     "Fakultas Ilmu Sosial dan Ilmu Politik",
+
     "Fakultas Peternakan dan Pertanian",
+
     "Fakultas Psikologi",
+
     "Fakultas Kedokteran",
+
     "Fakultas Kesehatan Masyarakat",
+
     "Sekolah Vokasi",
+
     "Wilayah dan Daerah"
+
   ],
 
 
@@ -82,19 +104,46 @@ window.LOWBAT_DATA = {
      ========================================================= */
 
   facultyShortMap: {
-    "Fakultas Teknik": "FT",
-    "Fakultas Ekonomika dan Bisnis": "FEB",
-    "Fakultas Perikanan dan Ilmu Kelautan": "FPIK",
-    "Fakultas Sains dan Matematika": "FSM",
-    "Fakultas Ilmu Budaya": "FIB",
-    "Fakultas Hukum": "FH",
-    "Fakultas Ilmu Sosial dan Ilmu Politik": "FISIP",
-    "Fakultas Peternakan dan Pertanian": "FPP",
-    "Fakultas Psikologi": "FPsi",
-    "Fakultas Kedokteran": "FK",
-    "Fakultas Kesehatan Masyarakat": "FKM",
-    "Sekolah Vokasi": "SV",
-    "Wilayah dan Daerah": "WILDA"
+
+    "Fakultas Teknik":
+      "FT",
+
+    "Fakultas Ekonomika dan Bisnis":
+      "FEB",
+
+    "Fakultas Perikanan dan Ilmu Kelautan":
+      "FPIK",
+
+    "Fakultas Sains dan Matematika":
+      "FSM",
+
+    "Fakultas Ilmu Budaya":
+      "FIB",
+
+    "Fakultas Hukum":
+      "FH",
+
+    "Fakultas Ilmu Sosial dan Ilmu Politik":
+      "FISIP",
+
+    "Fakultas Peternakan dan Pertanian":
+      "FPP",
+
+    "Fakultas Psikologi":
+      "FPsi",
+
+    "Fakultas Kedokteran":
+      "FK",
+
+    "Fakultas Kesehatan Masyarakat":
+      "FKM",
+
+    "Sekolah Vokasi":
+      "SV",
+
+    "Wilayah dan Daerah":
+      "WILDA"
+
   },
 
 
@@ -103,10 +152,15 @@ window.LOWBAT_DATA = {
      ========================================================= */
 
   mikatOptions: [
+
     "Seniora",
+
     "Soraya",
+
     "Mikatan",
+
     "Mikat"
+
   ],
 
 
@@ -115,9 +169,11 @@ window.LOWBAT_DATA = {
      ========================================================= */
 
   sportsMap: {
+
     "Basket": [
       "Basket"
     ]
+
   },
 
 
@@ -126,8 +182,11 @@ window.LOWBAT_DATA = {
      ========================================================= */
 
   basketCategories: [
+
     "PUTRA",
+
     "PUTRI"
+
   ],
 
 
@@ -136,8 +195,11 @@ window.LOWBAT_DATA = {
      ========================================================= */
 
   matchStatuses: [
+
     "HOME",
+
     "AWAY"
+
   ],
 
 
@@ -146,7 +208,9 @@ window.LOWBAT_DATA = {
      ========================================================= */
 
   venues: [
+
     "Gor Basket UNDIP"
+
   ],
 
 
@@ -157,11 +221,15 @@ window.LOWBAT_DATA = {
   templates: [
 
     {
-      id: "h1-pertandingan-basket",
 
-      title: "H-1 Pertandingan Basket",
+      id:
+        "h1-pertandingan-basket",
 
-      icon: "🏀",
+      title:
+        "H-1 Pertandingan Basket",
+
+      icon:
+        "🏀",
 
       description:
         "Jarkoman H-1 pertandingan Basket OLIMDIPO 2026.",
@@ -171,15 +239,20 @@ window.LOWBAT_DATA = {
          FIELD GENERATOR
          ===================================================== */
 
-      requiresSport: true,
+      requiresSport:
+        true,
 
-      requiresDate: true,
+      requiresDate:
+        true,
 
-      requiresTime: false,
+      requiresTime:
+        false,
 
-      requiresPlace: false,
+      requiresPlace:
+        false,
 
-      requiresBasketMatch: true,
+      requiresBasketMatch:
+        true,
 
 
       /* =====================================================
@@ -188,7 +261,7 @@ window.LOWBAT_DATA = {
 
       content: `📢 *[H-1 PERTANDINGAN CABOR BASKET OLIMDIPO 2026]* 🏀🔥
 
-Halo Rekan-Rekan {MIKAT_PREFIX}Mikat Official Basket Kontingen {FACULTY} Universitas Diponegoro! 👋✨
+Halo Rekan-Rekan {MIKAT_LABEL} Official Basket Kontingen {FACULTY} Universitas Diponegoro! 👋✨
 
 Tidak terasa, *besok* Kontingen {FACULTY} akan melaksanakan pertandingan Basket OLIMDIPO 2026 dengan rincian:
 
@@ -201,10 +274,15 @@ Tidak terasa, *besok* Kontingen {FACULTY} akan melaksanakan pertandingan Basket 
 📍 *Venue:* {VENUE}
 
 ⚠️ *PENGINGAT PENTING!*
+
 • Seluruh atlet dan official diwajibkan hadir di venue *1 jam sebelum pertandingan* untuk melakukan persiapan dan registrasi.
+
 • Seluruh atlet dihimbau untuk membawa KTM. Khusus mahasiswa baru Angkatan 2026 yang belum memiliki KTM fisik, diwajibkan membawa KTM dalam bentuk print/cetak, dan untuk official diwajibkan membawa kartu lisensi *(jika mempunyai)*.
+
 • Pastikan seluruh perlengkapan dan kebutuhan pertandingan telah dipersiapkan sebelum menuju venue.
+
 • Mohon memperhatikan kembali regulasi dan ketentuan pertandingan yang telah disampaikan pada saat Technical Meeting.
+
 • Pastikan kembali kategori Putra/Putri, lawan, waktu registrasi, Tip Off, dan venue pertandingan agar tidak terjadi keterlambatan.
 
 Mohon bantuan Rekan-Rekan untuk meneruskan informasi ini kepada seluruh atlet dan official Basket kontingennya.
@@ -215,6 +293,7 @@ Sampai bertemu di venue dan semangat untuk pertandingan besok! 🏀🏆🔥
 #EarnYourMomentOwnTheStage
 #BidangSenidanOlahraga2026
 #BEMUNDIP2026`
+
     }
 
   ]
