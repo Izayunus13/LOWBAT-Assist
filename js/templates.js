@@ -226,15 +226,10 @@ Tidak terasa, *besok* Kontingen {FACULTY} akan melaksanakan pertandingan Basket 
 📍 *Venue:* {VENUE}
 
 ⚠️ *PENGINGAT PENTING!*
-
 • Seluruh atlet dan official diwajibkan hadir di venue *1 jam sebelum pertandingan* untuk melakukan persiapan dan registrasi.
-
 • Seluruh atlet dihimbau untuk membawa KTM. Khusus mahasiswa baru Angkatan 2026 yang belum memiliki KTM fisik, diwajibkan membawa KTM dalam bentuk print/cetak, dan untuk official diwajibkan membawa kartu lisensi *(jika mempunyai)*.
-
 • Pastikan seluruh perlengkapan dan kebutuhan pertandingan telah dipersiapkan sebelum menuju venue.
-
 • Mohon memperhatikan kembali regulasi dan ketentuan pertandingan yang telah disampaikan pada saat Technical Meeting.
-
 • Pastikan kembali kategori Putra/Putri, lawan, waktu registrasi, Tip Off, dan venue pertandingan agar tidak terjadi keterlambatan.
 
 Mohon bantuan Rekan-Rekan untuk meneruskan informasi ini kepada seluruh atlet dan official Basket kontingennya.
