@@ -6,44 +6,36 @@ DATA TEMPLATE JARKOMAN — LOWBAT ASSIST
 Template aktif:
 1. H-1 Pertandingan Basket OLIMDIPO 2026
 
-Placeholder:
-
-{MIKAT_LABEL}
-= Seniora / Soraya / Mikatan / Mikat + Fakultas
-Contoh:
-Seniora Fakultas Teknik
-
-{FACULTY}
-= Nama fakultas/delegasi lengkap
-Contoh:
-Fakultas Teknik
-
-{BASKET_CATEGORY}
-= PUTRA / PUTRI
-
-{MATCHUP}
-= Fakultas yang dijarkom VS Fakultas Lawan
-Contoh:
-FT vs FISIP
+FLOW:
+Template
+→ Staff
+→ Fakultas / Delegasi
+→ Mikat / Mikatan / Soraya / Seniora
+→ Cabang Olahraga: Basket
+→ Kategori: PUTRA / PUTRI
+→ Fakultas Lawan
+→ Status: HOME / AWAY
+→ Hari / Tanggal
+→ Jam Registrasi
+→ Jam Tip Off
+→ Venue
+→ Crosscheck
+→ Generate
 
 CATATAN:
-Fakultas yang dijarkom SELALU berada di sebelah kiri,
-baik status pertandingan HOME maupun AWAY.
+Fakultas yang sedang dijarkom SELALU berada
+di sebelah kiri pada bagian pertandingan.
 
-{MATCH_STATUS}
-= HOME / AWAY
+Contoh:
+Fakultas Teknik dijarkom
+Lawan FISIP
+Status AWAY
 
-{DAY_DATE}
-= Hari dan tanggal pertandingan
+Hasil:
+FT vs FISIP
+Status: AWAY
 
-{REGISTRATION_TIME}
-= Jam registrasi
-
-{TIPOFF_TIME}
-= Jam Tip Off
-
-{VENUE}
-= Venue pertandingan
+HOME / AWAY TIDAK membalik posisi tim.
 ===========================================================
 */
 
@@ -71,9 +63,12 @@ window.LOWBAT_DATA = {
 
 
   /* =========================================================
-     SINGKATAN FAKULTAS
-     Digunakan pada bagian pertandingan.
-     Contoh: FT vs FISIP
+     SINGKATAN FAKULTAS / DELEGASI
+
+     Digunakan pada bagian:
+     FT vs FISIP
+     FEB vs FPP
+     dst.
      ========================================================= */
 
   facultyShortMap: {
@@ -106,6 +101,21 @@ window.LOWBAT_DATA = {
 
 
   /* =========================================================
+     CABANG OLAHRAGA
+
+     Saat ini hanya Basket.
+     Setelah Basket dipilih,
+     baru form PUTRA / PUTRI akan muncul.
+     ========================================================= */
+
+  sportsMap: {
+    "Basket": [
+      "Basket"
+    ]
+  },
+
+
+  /* =========================================================
      KATEGORI BASKET
      ========================================================= */
 
@@ -126,27 +136,12 @@ window.LOWBAT_DATA = {
 
 
   /* =========================================================
-     VENUE
+     VENUE PERTANDINGAN
      ========================================================= */
 
   venues: [
     "Gor Basket UNDIP"
   ],
-
-
-  /* =========================================================
-     SPORTS MAP
-
-     Tetap disediakan supaya struktur app.js lama
-     tidak terganggu.
-     ========================================================= */
-
-  sportsMap: {
-    "Basket": [
-      "Basket Putra",
-      "Basket Putri"
-    ]
-  },
 
 
   /* =========================================================
@@ -166,23 +161,55 @@ window.LOWBAT_DATA = {
         "Jarkoman H-1 pertandingan Basket OLIMDIPO 2026.",
 
 
+      /* =====================================================
+         FIELD GENERATOR
+         ===================================================== */
+
       /*
-      Field bawaan generator.
+      TRUE karena user tetap harus
+      memilih Cabang Olahraga: Basket.
       */
 
-      requiresSport: false,
-      requiresDate: true,
-      requiresTime: false,
-      requiresPlace: false,
-
+      requiresSport: true,
 
       /*
-      Menandakan template ini menggunakan
-      form khusus pertandingan Basket.
+      Hari / tanggal pertandingan wajib dipilih.
+      */
+
+      requiresDate: true,
+
+      /*
+      Waktu generic tidak digunakan,
+      karena Basket memakai:
+      - Jam Registrasi
+      - Jam Tip Off
+      */
+
+      requiresTime: false,
+
+      /*
+      Tempat generic tidak digunakan,
+      karena venue memakai dropdown khusus.
+      */
+
+      requiresPlace: false,
+
+      /*
+      Mengaktifkan form khusus pertandingan Basket:
+      PUTRA/PUTRI
+      Lawan
+      HOME/AWAY
+      Registrasi
+      Tip Off
+      Venue
       */
 
       requiresBasketMatch: true,
 
+
+      /* =====================================================
+         ISI JARKOMAN
+         ===================================================== */
 
       content: `📢 *[H-1 PERTANDINGAN BASKET OLIMDIPO 2026]* 🏀🔥
 
