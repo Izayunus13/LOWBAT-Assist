@@ -941,3 +941,675 @@ code { padding:3px 7px; color:var(--gold-light); border-radius:7px; background:r
   }
 
 }
+
+/* =========================================================
+   BASKET MATCH GENERATOR
+   PUTRA / PUTRI — LAWAN — HOME / AWAY — PREVIEW
+   ========================================================= */
+
+.basket-match-fields {
+  display: contents;
+}
+
+.basket-match-fields.hidden {
+  display: none !important;
+}
+
+.basket-special-field {
+  min-width: 0;
+}
+
+
+/* =========================================================
+   PILIHAN PUTRA / PUTRI + HOME / AWAY
+   ========================================================= */
+
+.basket-choice-grid {
+  width: 100%;
+  margin-top: 7px;
+
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 9px;
+}
+
+.basket-choice-button {
+  width: 100%;
+  min-width: 0;
+  min-height: 66px;
+
+  padding: 11px 13px;
+
+  display: flex;
+  align-items: center;
+  gap: 11px;
+
+  border: 1px solid rgba(255, 195, 71, .14);
+  border-radius: 14px;
+
+  background: rgba(255, 255, 255, .025);
+
+  color: #eadcca;
+
+  font-family: inherit;
+  text-align: left;
+
+  cursor: pointer;
+
+  transition:
+    transform .2s ease,
+    border-color .2s ease,
+    background .2s ease,
+    box-shadow .2s ease;
+}
+
+.basket-choice-button:hover {
+  transform: translateY(-1px);
+
+  border-color: rgba(255, 195, 71, .4);
+
+  background: rgba(255, 195, 71, .06);
+}
+
+.basket-choice-button:active {
+  transform: scale(.985);
+}
+
+.basket-choice-button.active {
+  border-color: rgba(255, 195, 71, .78);
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 224, 148, .16),
+      rgba(255, 195, 71, .11),
+      rgba(255, 122, 0, .08)
+    );
+
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 195, 71, .08),
+    0 8px 20px rgba(255, 122, 0, .08);
+}
+
+.basket-choice-icon {
+  width: 40px;
+  height: 40px;
+
+  display: grid;
+  place-items: center;
+
+  flex: 0 0 40px;
+
+  border: 1px solid rgba(255, 195, 71, .12);
+  border-radius: 12px;
+
+  background: rgba(255, 195, 71, .08);
+
+  font-size: 1.05rem;
+}
+
+.basket-choice-button > span:last-child {
+  min-width: 0;
+  display: grid;
+}
+
+.basket-choice-button small {
+  margin-bottom: 2px;
+
+  color: var(--muted);
+
+  font-size: .59rem;
+  font-weight: 800;
+
+  text-transform: uppercase;
+  letter-spacing: .07em;
+}
+
+.basket-choice-button strong {
+  color: #fff5e7;
+
+  font-size: .8rem;
+  font-weight: 900;
+}
+
+
+/* =========================================================
+   BUTTON PILIH LAWAN
+   ========================================================= */
+
+.opponent-picker-button {
+  width: 100%;
+  min-width: 0;
+
+  margin-top: 7px;
+  padding: 12px;
+
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 11px;
+
+  border: 1px solid rgba(255, 195, 71, .14);
+  border-radius: 14px;
+
+  background: rgba(255, 255, 255, .025);
+
+  color: var(--text);
+
+  font-family: inherit;
+  text-align: left;
+
+  cursor: pointer;
+
+  transition:
+    transform .2s ease,
+    border-color .2s ease,
+    background .2s ease;
+}
+
+.opponent-picker-button:hover {
+  transform: translateY(-1px);
+
+  border-color: rgba(255, 195, 71, .4);
+
+  background: rgba(255, 195, 71, .06);
+}
+
+.opponent-picker-button:active {
+  transform: scale(.99);
+}
+
+.opponent-picker-icon {
+  width: 42px;
+  height: 42px;
+
+  display: grid;
+  place-items: center;
+
+  flex: 0 0 42px;
+
+  border: 1px solid rgba(255, 195, 71, .12);
+  border-radius: 12px;
+
+  background: rgba(255, 195, 71, .08);
+
+  font-size: 1rem;
+}
+
+.opponent-picker-content {
+  min-width: 0;
+  display: grid;
+}
+
+.opponent-picker-content small {
+  color: var(--muted);
+
+  font-size: .59rem;
+  font-weight: 800;
+
+  text-transform: uppercase;
+  letter-spacing: .07em;
+}
+
+.opponent-picker-content strong {
+  margin-top: 2px;
+
+  overflow: hidden;
+
+  color: #fff5e7;
+
+  font-size: .8rem;
+  font-weight: 900;
+
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.opponent-picker-content em {
+  margin-top: 2px;
+
+  overflow: hidden;
+
+  color: var(--muted);
+
+  font-size: .64rem;
+  font-style: normal;
+
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.opponent-picker-arrow {
+  color: var(--gold-light);
+
+  font-size: 1.45rem;
+  font-weight: 300;
+}
+
+
+/* =========================================================
+   PREVIEW PERTANDINGAN
+   ========================================================= */
+
+.basket-match-preview {
+  min-width: 0;
+  min-height: 68px;
+
+  padding: 13px 14px;
+
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  border: 1px solid rgba(255, 195, 71, .15);
+  border-radius: 15px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 195, 71, .075),
+      rgba(255, 122, 0, .035)
+    );
+}
+
+.match-preview-icon {
+  width: 42px;
+  height: 42px;
+
+  display: grid;
+  place-items: center;
+
+  flex: 0 0 42px;
+
+  border-radius: 12px;
+
+  background: rgba(255, 195, 71, .09);
+
+  font-size: 1.05rem;
+}
+
+.basket-match-preview > div:last-child {
+  min-width: 0;
+  display: grid;
+}
+
+.basket-match-preview small {
+  color: var(--muted);
+
+  font-size: .59rem;
+  font-weight: 800;
+
+  text-transform: uppercase;
+  letter-spacing: .07em;
+}
+
+.basket-match-preview strong {
+  margin-top: 2px;
+
+  color: #fff5e7;
+
+  font-size: .9rem;
+  font-weight: 900;
+}
+
+.basket-match-preview span {
+  margin-top: 2px;
+
+  color: var(--gold-light);
+
+  font-size: .65rem;
+  font-weight: 900;
+}
+
+.basket-field-note {
+  margin-top: -1px;
+
+  color: var(--muted);
+
+  font-size: .63rem;
+}
+
+
+/* =========================================================
+   POPUP PILIH FAKULTAS LAWAN
+   ========================================================= */
+
+.opponent-picker-backdrop {
+  position: fixed;
+  inset: 0;
+
+  z-index: 180;
+
+  padding: 22px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: rgba(3, 3, 4, .78);
+
+  backdrop-filter: blur(10px);
+
+  animation: opponentFadeIn .18s ease;
+}
+
+@keyframes opponentFadeIn {
+  from {
+    opacity: 0;
+  }
+}
+
+.opponent-picker-backdrop.hidden {
+  display: none !important;
+}
+
+.opponent-picker-card {
+  width: min(690px, 100%);
+  max-height: min(760px, 88vh);
+
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+
+  overflow: hidden;
+
+  border: 1px solid rgba(255, 195, 71, .23);
+  border-radius: 24px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(29, 18, 11, .995),
+      rgba(10, 8, 6, .995)
+    );
+
+  box-shadow:
+    0 35px 100px rgba(0, 0, 0, .58);
+
+  animation: opponentCardIn .22s ease;
+}
+
+@keyframes opponentCardIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(.985);
+  }
+}
+
+.opponent-picker-header {
+  padding: 21px 22px 18px;
+
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 18px;
+
+  border-bottom: 1px solid rgba(255, 255, 255, .07);
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255, 195, 71, .035),
+      transparent
+    );
+}
+
+.opponent-picker-header > div {
+  min-width: 0;
+}
+
+.opponent-picker-eyebrow {
+  display: inline-block;
+
+  margin-bottom: 5px;
+
+  color: var(--gold);
+
+  font-size: .62rem;
+  font-weight: 900;
+
+  letter-spacing: .09em;
+}
+
+.opponent-picker-header h3 {
+  margin: 0;
+
+  color: #fff6e9;
+
+  font-family: "Baloo 2", "Nunito", sans-serif;
+  font-size: 1.18rem;
+  line-height: 1.1;
+}
+
+.opponent-picker-header p {
+  max-width: 480px;
+
+  margin: 7px 0 0;
+
+  color: var(--muted);
+
+  font-size: .69rem;
+  line-height: 1.5;
+}
+
+.opponent-close-button {
+  width: 38px;
+  height: 38px;
+
+  display: grid;
+  place-items: center;
+
+  flex: 0 0 38px;
+
+  border: 1px solid rgba(255, 255, 255, .09);
+  border-radius: 11px;
+
+  background: rgba(255, 255, 255, .04);
+
+  color: var(--text);
+
+  cursor: pointer;
+
+  transition:
+    border-color .2s ease,
+    background .2s ease,
+    transform .2s ease;
+}
+
+.opponent-close-button:hover {
+  transform: rotate(3deg);
+
+  border-color: rgba(255, 195, 71, .32);
+
+  background: rgba(255, 195, 71, .07);
+}
+
+.opponent-grid {
+  min-height: 0;
+  max-height: 62vh;
+
+  padding: 17px;
+
+  overflow-x: hidden;
+  overflow-y: auto;
+
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 9px;
+
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+}
+
+.opponent-option {
+  min-width: 0;
+  min-height: 92px;
+
+  padding: 13px 12px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  border: 1px solid rgba(255, 195, 71, .12);
+  border-radius: 15px;
+
+  background: rgba(255, 255, 255, .027);
+
+  color: var(--text);
+
+  font-family: inherit;
+  text-align: left;
+
+  cursor: pointer;
+
+  transition:
+    transform .2s ease,
+    border-color .2s ease,
+    background .2s ease,
+    box-shadow .2s ease;
+}
+
+.opponent-option:hover {
+  transform: translateY(-2px);
+
+  border-color: rgba(255, 195, 71, .45);
+
+  background: rgba(255, 195, 71, .065);
+}
+
+.opponent-option.active {
+  border-color: var(--gold);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 195, 71, .13),
+      rgba(255, 122, 0, .07)
+    );
+
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 195, 71, .09);
+}
+
+.opponent-option strong {
+  color: var(--gold-light);
+
+  font-size: 1.02rem;
+  font-weight: 900;
+}
+
+.opponent-option span {
+  margin-top: 5px;
+
+  color: var(--muted);
+
+  font-size: .62rem;
+  line-height: 1.35;
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 760px) {
+  .opponent-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 620px) {
+
+  .basket-choice-grid {
+    gap: 7px;
+  }
+
+  .basket-choice-button {
+    min-height: 60px;
+    padding: 9px 10px;
+  }
+
+  .basket-choice-icon {
+    width: 36px;
+    height: 36px;
+
+    flex-basis: 36px;
+
+    border-radius: 10px;
+  }
+
+  .opponent-picker-button {
+    padding: 10px;
+  }
+
+  .opponent-picker-icon {
+    width: 38px;
+    height: 38px;
+
+    flex-basis: 38px;
+  }
+
+  .opponent-picker-backdrop {
+    padding: 10px;
+    align-items: flex-end;
+  }
+
+  .opponent-picker-card {
+    width: 100%;
+    max-height: 85vh;
+
+    border-radius: 22px 22px 14px 14px;
+  }
+
+  .opponent-picker-header {
+    padding: 18px 16px 14px;
+  }
+
+  .opponent-grid {
+    max-height: 62vh;
+
+    padding: 12px;
+
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 7px;
+  }
+
+  .opponent-option {
+    min-height: 80px;
+    padding: 10px;
+  }
+
+  .basket-match-preview {
+    min-height: 62px;
+    padding: 11px 12px;
+  }
+}
+
+
+/* =========================================================
+   VERY SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 390px) {
+
+  .basket-choice-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .opponent-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .opponent-option strong {
+    font-size: .9rem;
+  }
+
+  .opponent-option span {
+    font-size: .57rem;
+  }
+}
