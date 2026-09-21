@@ -23,8 +23,9 @@ Template
 → Generate
 
 CATATAN:
-Fakultas yang sedang dijarkom SELALU berada
-di sebelah kiri pada bagian pertandingan.
+
+1. Fakultas yang sedang dijarkom SELALU berada
+   di sebelah kiri pada bagian pertandingan.
 
 Contoh:
 Fakultas Teknik dijarkom
@@ -36,6 +37,20 @@ FT vs FISIP
 Status: AWAY
 
 HOME / AWAY TIDAK membalik posisi tim.
+
+2. Sapaan menggunakan format:
+
+Seniora:
+Rekan-Rekan Seniora dan Mikat Official Basket Kontingen ...
+
+Mikatan:
+Rekan-Rekan Mikatan dan Mikat Official Basket Kontingen ...
+
+Soraya:
+Rekan-Rekan Soraya dan Mikat Official Basket Kontingen ...
+
+Mikat:
+Rekan-Rekan Mikat Official Basket Kontingen ...
 ===========================================================
 */
 
@@ -64,11 +79,6 @@ window.LOWBAT_DATA = {
 
   /* =========================================================
      SINGKATAN FAKULTAS / DELEGASI
-
-     Digunakan pada bagian:
-     FT vs FISIP
-     FEB vs FPP
-     dst.
      ========================================================= */
 
   facultyShortMap: {
@@ -102,10 +112,6 @@ window.LOWBAT_DATA = {
 
   /* =========================================================
      CABANG OLAHRAGA
-
-     Saat ini hanya Basket.
-     Setelah Basket dipilih,
-     baru form PUTRA / PUTRI akan muncul.
      ========================================================= */
 
   sportsMap: {
@@ -165,44 +171,13 @@ window.LOWBAT_DATA = {
          FIELD GENERATOR
          ===================================================== */
 
-      /*
-      TRUE karena user tetap harus
-      memilih Cabang Olahraga: Basket.
-      */
-
       requiresSport: true,
-
-      /*
-      Hari / tanggal pertandingan wajib dipilih.
-      */
 
       requiresDate: true,
 
-      /*
-      Waktu generic tidak digunakan,
-      karena Basket memakai:
-      - Jam Registrasi
-      - Jam Tip Off
-      */
-
       requiresTime: false,
 
-      /*
-      Tempat generic tidak digunakan,
-      karena venue memakai dropdown khusus.
-      */
-
       requiresPlace: false,
-
-      /*
-      Mengaktifkan form khusus pertandingan Basket:
-      PUTRA/PUTRI
-      Lawan
-      HOME/AWAY
-      Registrasi
-      Tip Off
-      Venue
-      */
 
       requiresBasketMatch: true,
 
@@ -213,7 +188,7 @@ window.LOWBAT_DATA = {
 
       content: `📢 *[H-1 PERTANDINGAN BASKET OLIMDIPO 2026]* 🏀🔥
 
-Halo Rekan-Rekan {MIKAT_LABEL} dan Official Basket Kontingen {FACULTY} Universitas Diponegoro! 👋✨
+Halo Rekan-Rekan {MIKAT_PREFIX}Mikat Official Basket Kontingen {FACULTY} Universitas Diponegoro! 👋✨
 
 Tidak terasa, *besok* Kontingen {FACULTY} akan melaksanakan pertandingan Basket OLIMDIPO 2026 dengan rincian:
 
