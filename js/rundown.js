@@ -3,9 +3,6 @@
 RUNDOWN BASKET OLIMDIPO 2026 — LOWBAT ASSIST
 ===========================================================
 
-Sumber:
-Rundown Basket OLIMDIPO 2026
-
 DAY 1 — Senin, 21 September 2026
 DAY 2 — Selasa, 22 September 2026
 DAY 3 — Rabu, 23 September 2026
@@ -14,7 +11,9 @@ DAY 4 — Kamis, 24 September 2026
 Catatan:
 - Hanya jadwal pertandingan yang ditampilkan.
 - Persiapan panitia, persiapan game, Ishoma,
-  dan clear area tidak dimasukkan ke dashboard.
+  dan clear area tidak ditampilkan.
+- Lokasi seluruh pertandingan:
+  Gor Basket UNDIP
 ===========================================================
 */
 
@@ -31,7 +30,7 @@ window.RUNDOWN_DATA = [
     endTime: "09:00",
     sport: "Basket Putra",
     faculty: "FKM vs FSM",
-    place: "GOR Basket Prof. Dr. dr. Susilo Wibowo, M.S.Med., Sp.And(K). UNDIP"
+    place: "Gor Basket UNDIP"
   },
 
   {
@@ -40,7 +39,7 @@ window.RUNDOWN_DATA = [
     endTime: "10:15",
     sport: "Basket Putri",
     faculty: "FPP vs FKM",
-    place: "GOR Basket Prof. Dr. dr. Susilo Wibowo, M.S.Med., Sp.And(K). UNDIP"
+    place: "Gor Basket UNDIP"
   },
 
   {
@@ -49,7 +48,7 @@ window.RUNDOWN_DATA = [
     endTime: "11:30",
     sport: "Basket Putri",
     faculty: "FH vs SV",
-    place: "GOR Basket Prof. Dr. dr. Susilo Wibowo, M.S.Med., Sp.And(K). UNDIP"
+    place: "Gor Basket UNDIP"
   },
 
   {
@@ -58,7 +57,7 @@ window.RUNDOWN_DATA = [
     endTime: "12:45",
     sport: "Basket Putra",
     faculty: "FPP vs Wilayah & Daerah",
-    place: "GOR Basket Prof. Dr. dr. Susilo Wibowo, M.S.Med., Sp.And(K). UNDIP"
+    place: "Gor Basket UNDIP"
   },
 
   {
@@ -67,7 +66,7 @@ window.RUNDOWN_DATA = [
     endTime: "14:45",
     sport: "Basket Putri",
     faculty: "FEB vs FPIK",
-    place: "GOR Basket Prof. Dr. dr. Susilo Wibowo, M.S.Med., Sp.And(K). UNDIP"
+    place: "Gor Basket UNDIP"
   },
 
   {
@@ -76,7 +75,7 @@ window.RUNDOWN_DATA = [
     endTime: "16:00",
     sport: "Basket Putra",
     faculty: "FPIK vs FEB",
-    place: "GOR Basket Prof. Dr. dr. Susilo Wibowo, M.S.Med., Sp.And(K). UNDIP"
+    place: "Gor Basket UNDIP"
   },
 
   {
@@ -85,7 +84,7 @@ window.RUNDOWN_DATA = [
     endTime: "17:15",
     sport: "Basket Putra",
     faculty: "FISIP vs FH",
-    place: "GOR Basket Prof. Dr. dr. Susilo Wibowo, M.S.Med., Sp.And(K). UNDIP"
+    place: "Gor Basket UNDIP"
   },
 
   {
@@ -94,7 +93,7 @@ window.RUNDOWN_DATA = [
     endTime: "18:30",
     sport: "Basket Putri",
     faculty: "FISIP vs FIB",
-    place: "GOR Basket Prof. Dr. dr. Susilo Wibowo, M.S.Med., Sp.And(K). UNDIP"
+    place: "Gor Basket UNDIP"
   },
 
 
@@ -109,7 +108,7 @@ window.RUNDOWN_DATA = [
     endTime: "10:00",
     sport: "Basket Putra",
     faculty: "FPSI vs FKM",
-    place: "GOR Basket Prof. Dr. dr. Susilo Wibowo, M.S.Med., Sp.And(K). UNDIP"
+    place: "Gor Basket UNDIP"
   },
 
   {
@@ -118,7 +117,7 @@ window.RUNDOWN_DATA = [
     endTime: "11:15",
     sport: "Basket Putra",
     faculty: "FH vs FK",
-    place: "GOR Basket Prof. Dr. dr. Susilo Wibowo, M.S.Med., Sp.And(K). UNDIP"
+    place: "Gor Basket UNDIP"
   },
 
   {
@@ -127,7 +126,7 @@ window.RUNDOWN_DATA = [
     endTime: "12:30",
     sport: "Basket Putri",
     faculty: "FSM vs FEB",
-    place: "GOR Basket Prof. Dr. dr. Susilo Wibowo, M.S.Med., Sp.And(K). UNDIP"
+    place: "Gor Basket UNDIP"
   },
 
   {
@@ -136,7 +135,7 @@ window.RUNDOWN_DATA = [
     endTime: "14:30",
     sport: "Basket Putra",
     faculty: "SV vs FPIK",
-    place: "GOR Basket Prof. Dr. dr. Susilo Wibowo, M.S.Med., Sp.And(K). UNDIP"
+    place: "Gor Basket UNDIP"
   },
 
   {
@@ -145,7 +144,7 @@ window.RUNDOWN_DATA = [
     endTime: "15:45",
     sport: "Basket Putri",
     faculty: "FK vs FPP",
-    place: "GOR Basket Prof. Dr. dr. Susilo Wibowo, M.S.Med., Sp.And(K). UNDIP"
+    place: "Gor Basket UNDIP"
   },
 
   {
@@ -154,7 +153,7 @@ window.RUNDOWN_DATA = [
     endTime: "17:00",
     sport: "Basket Putra",
     faculty: "FIB vs FT",
-    place: "GOR Basket Prof. Dr. dr. Susilo Wibowo, M.S.Med., Sp.And(K). UNDIP"
+    place: "Gor Basket UNDIP"
   },
 
   {
@@ -163,7 +162,7 @@ window.RUNDOWN_DATA = [
     endTime: "18:15",
     sport: "Basket Putri",
     faculty: "SV vs FT",
-    place: "GOR Basket Prof. Dr. dr. Susilo Wibowo, M.S.Med., Sp.And(K). UNDIP"
+    place: "Gor Basket UNDIP"
   },
 
 
@@ -178,7 +177,7 @@ window.RUNDOWN_DATA = [
     endTime: "10:00",
     sport: "Basket Putra",
     faculty: "FSM vs FPsi",
-    place: "GOR Basket Prof. Dr. dr. Susilo Wibowo, M.S.Med., Sp.And(K). UNDIP"
+    place: "Gor Basket UNDIP"
   },
 
   {
@@ -187,7 +186,7 @@ window.RUNDOWN_DATA = [
     endTime: "11:15",
     sport: "Basket Putri",
     faculty: "FPIK vs FSM",
-    place: "GOR Basket Prof. Dr. dr. Susilo Wibowo, M.S.Med., Sp.And(K). UNDIP"
+    place: "Gor Basket UNDIP"
   },
 
   {
@@ -196,7 +195,7 @@ window.RUNDOWN_DATA = [
     endTime: "12:30",
     sport: "Basket Putra",
     faculty: "FK vs FISIP",
-    place: "GOR Basket Prof. Dr. dr. Susilo Wibowo, M.S.Med., Sp.And(K). UNDIP"
+    place: "Gor Basket UNDIP"
   },
 
   {
@@ -205,7 +204,7 @@ window.RUNDOWN_DATA = [
     endTime: "14:30",
     sport: "Basket Putra",
     faculty: "Wilayah & Daerah vs FIB",
-    place: "GOR Basket Prof. Dr. dr. Susilo Wibowo, M.S.Med., Sp.And(K). UNDIP"
+    place: "Gor Basket UNDIP"
   },
 
   {
@@ -214,7 +213,7 @@ window.RUNDOWN_DATA = [
     endTime: "15:45",
     sport: "Basket Putri",
     faculty: "FPSI vs FISIP",
-    place: "GOR Basket Prof. Dr. dr. Susilo Wibowo, M.S.Med., Sp.And(K). UNDIP"
+    place: "Gor Basket UNDIP"
   },
 
   {
@@ -223,7 +222,7 @@ window.RUNDOWN_DATA = [
     endTime: "17:00",
     sport: "Basket Putri",
     faculty: "FKM vs FK",
-    place: "GOR Basket Prof. Dr. dr. Susilo Wibowo, M.S.Med., Sp.And(K). UNDIP"
+    place: "Gor Basket UNDIP"
   },
 
   {
@@ -232,7 +231,7 @@ window.RUNDOWN_DATA = [
     endTime: "18:15",
     sport: "Basket Putra",
     faculty: "FT vs FPP",
-    place: "GOR Basket Prof. Dr. dr. Susilo Wibowo, M.S.Med., Sp.And(K). UNDIP"
+    place: "Gor Basket UNDIP"
   },
 
 
@@ -247,7 +246,7 @@ window.RUNDOWN_DATA = [
     endTime: "10:00",
     sport: "Basket Putri",
     faculty: "FIB vs FPsi",
-    place: "GOR Basket Prof. Dr. dr. Susilo Wibowo, M.S.Med., Sp.And(K). UNDIP"
+    place: "Gor Basket UNDIP"
   },
 
   {
@@ -256,7 +255,7 @@ window.RUNDOWN_DATA = [
     endTime: "11:15",
     sport: "Basket Putra",
     faculty: "FEB vs SV",
-    place: "GOR Basket Prof. Dr. dr. Susilo Wibowo, M.S.Med., Sp.And(K). UNDIP"
+    place: "Gor Basket UNDIP"
   },
 
   {
@@ -265,7 +264,7 @@ window.RUNDOWN_DATA = [
     endTime: "12:30",
     sport: "Basket Putra",
     faculty: "FPP vs FIB",
-    place: "GOR Basket Prof. Dr. dr. Susilo Wibowo, M.S.Med., Sp.And(K). UNDIP"
+    place: "Gor Basket UNDIP"
   },
 
   {
@@ -274,7 +273,7 @@ window.RUNDOWN_DATA = [
     endTime: "14:30",
     sport: "Basket Putra",
     faculty: "Wilayah & Daerah vs FT",
-    place: "GOR Basket Prof. Dr. dr. Susilo Wibowo, M.S.Med., Sp.And(K). UNDIP"
+    place: "Gor Basket UNDIP"
   },
 
   {
@@ -283,7 +282,7 @@ window.RUNDOWN_DATA = [
     endTime: "15:45",
     sport: "Basket Putri",
     faculty: "FT vs FH",
-    place: "GOR Basket Prof. Dr. dr. Susilo Wibowo, M.S.Med., Sp.And(K). UNDIP"
+    place: "Gor Basket UNDIP"
   }
 
 ];
